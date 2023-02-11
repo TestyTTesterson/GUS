@@ -9,6 +9,8 @@ import wikipedia
 
 #  Importing sytem stuff
 import datetime 
+from locomotion import movement
+
 
 #  /{IMPORTS}
 
@@ -32,6 +34,11 @@ def Parse_query():
 
 	elif "your name" in query:
 		print("I'm GUS, your desktop assistant")
+	
+	# TODO first attempt at adding the locomotion method
+
+	elif "start" in query:
+		movement("s")
 		
 	# Kinda fun optional functionality
 
