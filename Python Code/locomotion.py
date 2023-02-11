@@ -19,8 +19,11 @@ forgettabletempvarname=1
 #p.start(25)
 
 def movement(command):
+    # moved this inside the method for obvi reasons
+    # thankfully it wasn't still just named temp
+    forgettabletempvarname=1
 
-    if command=='r':
+    if 'r' in command:
         print("run")
         if(forgettabletempvarname==1):
             # GPIO.output(in1,# GPIO.HIGH)
@@ -31,44 +34,42 @@ def movement(command):
             # GPIO.output(in1,# GPIO.LOW)
             # GPIO.output(in2,# GPIO.HIGH)
             print("backward")
-            
 
-
-    elif command=='s':
+    elif 's' in command:
         print("stop")
         # GPIO.output(in1,# GPIO.LOW)
         # GPIO.output(in2,# GPIO.LOW)
         
 
-    elif command=='f':
+    elif 'f' in command:
         print("forward")
         # GPIO.output(in1,# GPIO.HIGH)
         # GPIO.output(in2,# GPIO.LOW)
         forgettabletempvarname=1
         
 
-    elif command=='b':
+    elif 'b' in command:
         print("back")
         # GPIO.output(in1,# GPIO.LOW)
         # GPIO.output(in2,# GPIO.HIGH)
         forgettabletempvarname=0
         
 
-    elif command=='l':
+    elif 'l' in command:
         print("low")
         # p.ChangeDutyCycle(25)
        
 
-    elif command=='m':
+    elif 'm' in command:
         print("medium")
         # p.ChangeDutyCycle(50)
         
 
-    elif command=='h':
+    elif 'h' in command:
         print("high")
         # p.ChangeDutyCycle(75)
         
-    elif command=='e':
+    elif 'e' in command:
         # GPIO.cleanup()
 
         exit()

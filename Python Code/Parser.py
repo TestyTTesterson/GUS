@@ -35,11 +35,21 @@ def Parse_query():
 	elif "your name" in query:
 		print("I'm GUS, your desktop assistant")
 	
-	# TODO first attempt at adding the locomotion method
+	# TODO START OF LOCOMOTION INTERACTION
 
-	elif "start" in query:
-		movement("s")
+	elif "travel" in query:
+		res = query.split(' ')
+		print(res[0])
+		print(len(res))
+		if len(res) > 1:
+			movement(res[1])
+		else:
+			print('Must provide direction as 2nd argument ("travel forward") not: ' + query)
 		
+
+
+
+	######  !  END OF LOCOMOTION INTERACTION
 	# Kinda fun optional functionality
 
 	elif "wikipedia" in query:
