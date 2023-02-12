@@ -1,3 +1,12 @@
+#  {CONSTANTS}/
+
+#  ! Pins for the proximity sensor
+TRIG = 17
+ECHO = 27
+#trigger = gpiozero.OutputDevice(TRIG)
+#echo = gpiozero.DigitalInputDevice(ECHO)
+
+#  /{CONSTANTS}
 #  {IMPORTS}/
 
 #  Text to Speech
@@ -13,17 +22,11 @@ from locomotion import movement
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 import sentience as senses
+trigger = senses.OutputDevice(TRIG,active_high=None)
+echo = senses.DigitalInputDevice(ECHO,active_state=None)
 
 #  /{IMPORTS}
-#  {CONSTANTS}/
 
-#  ! Pins for the proximity sensor
-TRIG = 17
-ECHO = 27
-#trigger = gpiozero.OutputDevice(TRIG)
-#echo = gpiozero.DigitalInputDevice(ECHO)
-
-#  /{CONSTANTS}
 
 #  {FUNCTIONS}/
 

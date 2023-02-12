@@ -8,8 +8,7 @@ import time
 
 #trigger = gpiozero.OutputDevice(TRIG)
 #echo = gpiozero.DigitalInputDevice(ECHO)
-trigger = gpiozero.OutputDevice(TRIG,active_high=None)
-echo = gpiozero.DigitalInputDevice(ECHO,active_state=None)
+
 
 def Ping(TRIG, ECHO):
 
