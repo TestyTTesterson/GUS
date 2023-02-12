@@ -9,7 +9,10 @@ import time
 #trigger = gpiozero.OutputDevice(TRIG)
 #echo = gpiozero.DigitalInputDevice(ECHO)
 
-def Ping(trigger, echo):
+def Ping(TRIG, ECHO):
+
+    trigger = gpiozero.OutputDevice(TRIG)
+    echo = gpiozero.DigitalInputDevice(ECHO)
 
     pulse_start = time.time()
     pulse_end = time.time()
@@ -19,9 +22,11 @@ def Ping(trigger, echo):
 
     while echo.is_active == False:
         pulse_start = time.time()
+        print('echo off ')
 
     while echo.is_active == True:
         pulse_end = time.time()
+        print('echo on')
 
     pulse_duration = pulse_end - pulse_start
     distance = 34300 * (pulse_duration/2)

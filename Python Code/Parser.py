@@ -20,8 +20,8 @@ import sentience
 
 TRIG = 17
 ECHO = 27
-trigger = gpiozero.OutputDevice(TRIG)
-echo = gpiozero.DigitalInputDevice(ECHO)
+#trigger = gpiozero.OutputDevice(TRIG)
+#echo = gpiozero.DigitalInputDevice(ECHO)
 #  /{CONSTANTS}
 
 #  {FUNCTIONS}/
@@ -104,7 +104,7 @@ def GUSPrompt():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
-	query = input(str(greeting())+str(sentience.Ping(trigger, echo))+"cm>'Position in Command Structure'>")
+	query = input(str(greeting())+str(sentience.Ping(TRIG, ECHO))+"cm>'Position in Command Structure'>")
 
 	return (query)
 
