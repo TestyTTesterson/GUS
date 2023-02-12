@@ -16,18 +16,18 @@ def Ping(TRIG, ECHO):
 
     pulse_start = time.time()
     pulse_end = time.time()
-    
+
     trigger.on()
     time.sleep(0.00001)
     trigger.off()
 
     while echo.is_active == False:
         pulse_start = time.time()
-        print('echo off ')
+        #print('echo off ')
 
     while echo.is_active == True:
         pulse_end = time.time()
-        print('echo on')
+        #print('echo on')
 
     pulse_duration = pulse_end - pulse_start
     distance = 34300 * (pulse_duration/2)
