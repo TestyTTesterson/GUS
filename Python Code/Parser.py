@@ -11,7 +11,7 @@
 import datetime 
 from locomotion import movement
 import GUScontroller as GUSctrl
-PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+#PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 
 #  /{IMPORTS}
 
@@ -33,8 +33,8 @@ def Parse_query():
 
 		#  Identify yourself
 	elif "controller" in query:
-
-		PS4Ctrlr.listen()
+		print('controllers are hard')
+		#PS4Ctrlr.listen()
 
 	elif "your name" in query:
 		print("I'm GUS, your desktop assistant")
@@ -136,7 +136,8 @@ def greeting():
                                 |                
                                  \)              
 
-	How can I help?/n''')
+	How can I help?
+	''')
 
 #  /{FUNCTIONS}
 
