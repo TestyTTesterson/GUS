@@ -11,8 +11,8 @@ import time
 
 def Ping(TRIG, ECHO):
 
-    trigger = gpiozero.OutputDevice(TRIG)
-    echo = gpiozero.DigitalInputDevice(ECHO)
+    trigger = gpiozero.OutputDevice(TRIG,active_high=True)
+    echo = gpiozero.DigitalInputDevice(ECHO,active_state=True)
 
     pulse_start = time.time()
     pulse_end = time.time()
