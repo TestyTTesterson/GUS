@@ -4,8 +4,8 @@ import locomotion as moveIt
 
 TRIG = 17
 ECHO = 27
-trigger = senses.gpiozero.OutputDevice(TRIG,active_high=None)
-echo = senses.gpiozero.DigitalInputDevice(ECHO,active_state=None)
+trigger = senses.gpiozero.OutputDevice(TRIG)
+echo = senses.gpiozero.DigitalInputDevice(ECHO)
 
 class GUSrobot:
     def __init__(self, name, location):
