@@ -22,8 +22,8 @@ from locomotion import movement
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 import sentience as senses
-trigger = senses.OutputDevice(TRIG,active_high=None)
-echo = senses.DigitalInputDevice(ECHO,active_state=None)
+trigger = senses.gpiozero.OutputDevice(TRIG,active_high=None)
+echo = senses.gpiozero.DigitalInputDevice(ECHO,active_state=None)
 
 #  /{IMPORTS}
 
