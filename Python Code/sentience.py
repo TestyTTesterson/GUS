@@ -32,7 +32,7 @@ def Ping(TRIG, ECHO):
     pulse_duration = pulse_end - pulse_start
     distance = 34300 * (pulse_duration/2)
     round_distance = round(distance, 1)
-    print(round_distance)
+    return(round_distance)
 
 #while True:
 #    Ping()
