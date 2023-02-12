@@ -105,11 +105,12 @@ def GUSPrompt():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
-	query = input(str(greeting())+str(senses.Ping(TRIG, ECHO))+"cm>'Position in Command Structure'>")
-
+	
+	query = input(str(greeting())+"cm>'Position in Command Structure'>")
+	print(senses.Ping(TRIG, ECHO))
 	return (query)
 
-#    MOTD   
+#  MOTD   
 #  Standard Greeting 
 
 def greeting():
