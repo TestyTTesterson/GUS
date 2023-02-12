@@ -12,8 +12,6 @@ import time
 
 def Ping(TRIG, ECHO, trigger, echo):
 
-
-
     pulse_start = time.time()
     pulse_end = time.time()
 
