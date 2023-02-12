@@ -1,11 +1,11 @@
 #  {IMPORTS}/
 
 #  Text to Speech
-import pyttsx3
+#  import pyttsx3
 
 #  Actions
-import webbrowser 
-import wikipedia
+#import webbrowser 
+#import wikipedia
 
 #  Importing sytem stuff
 import datetime 
@@ -61,13 +61,13 @@ def Parse_query():
 			# summary of 4 lines from
 			# wikipedia can be increased and decreased
 
-		result = wikipedia.summary(query, sentences=4)
+		#result = wikipedia.summary(query, sentences=4)
 		print("According to wikipedia")
-		print(result)
+		print("result")
 
 	elif "google" in query:
 		print("Opening Google ")
-		webbrowser.open("www.google.ca")
+		#webbrowser.open("www.google.ca")
 		
 
 

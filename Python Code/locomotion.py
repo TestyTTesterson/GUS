@@ -4,6 +4,10 @@
 import gpiozero
 from time import sleep
 
+ledViolet = gpiozero.LED(23)
+ledGreen = gpiozero.LED(24)
+ledRed = gpiozero.LED(25)
+ledYellow = gpiozero.LED(26)
 # in1 = 24
 # in2 = 23
 en = 25
@@ -20,7 +24,7 @@ forgettabletempvarname=1
 
 # TODO Must figure out this part instead of using LED.ON/OFF
 #p=# GPIO.PWM(en,1000)
-myMotor=gpiozero.Motor(23, 24)
+#  myMotor=gpiozero.Motor(23, 24)
 # if myMotor._check_open:
 #p.start(25)
 
@@ -33,38 +37,55 @@ def movement(command):
 
     if 's' in command:
         print("stop")
-        myMotor.stop
+        ledRed.on()
+        sleep(1)
+        ledRed.off()
+        #myMotor.stop
         
 
     elif 'f' in command:
         print("forward")
-        myMotor.forward()
+        #myMotor.forward()
+        ledGreen.on()
+        sleep(1)
+        ledGreen.off()
         forgettabletempvarname=1
         
 
     elif 'b' in command:
         print("back")
-        myMotor.backward()
+        #myMotor.backward()
+        ledYellow.on()
+        sleep(1)
+        ledYellow.off()
         forgettabletempvarname=0
         
 
     elif 'l' in command:
         print("low")
-        motorSpeed=0.25
+        #motorSpeed=0.25
+        ledViolet.on()
+        sleep(1)
+        ledViolet.off()
         # p.ChangeDutyCycle(25)
        
 
     elif 'm' in command:
         print("medium")
-        motorSpeed=0.5
-
+        #motorSpeed=0.5
+        ledYellow.on()
+        sleep(1)
+        ledYellow.off()
         # p.ChangeDutyCycle(50)
         
 
     elif 'h' in command:
         print("high")
-        motorSpeed=0.75
+        #motorSpeed=0.75
         # p.ChangeDutyCycle(75)
+        ledRed.on()
+        sleep(1)
+        ledRed.off()
 
     #  TODO add the turning function
     # I'm thinking just a 90 degree turn but not sure what that will look like until
