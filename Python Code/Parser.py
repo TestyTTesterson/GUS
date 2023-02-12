@@ -107,7 +107,7 @@ def GUSPrompt():
 	# TODO The prompt should be here instead
 	
 	query = input(str(greeting())+"cm>'Position in Command Structure'>")
-	print(senses.Ping(TRIG, ECHO))
+	senses.Ping(TRIG, ECHO)
 	return (query)
 
 #  MOTD   
