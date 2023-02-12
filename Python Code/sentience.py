@@ -10,7 +10,7 @@ import time
 #echo = gpiozero.DigitalInputDevice(ECHO)
 
 
-def Ping(TRIG, ECHO):
+def Ping(TRIG, ECHO, trigger, echo):
 
 
 
