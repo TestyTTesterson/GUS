@@ -110,7 +110,8 @@ def GUSPrompt():
     print('***BEFORE INPUT***')
     query = input()
     print('***AFTER***')
-    print(str(senses.Ping(TRIG, ECHO)) + "cm>'Position in Command Structure'>")
+    stupidTempVar=str(senses.Ping(TRIG, ECHO))
+    print(stupidTempVar + "cm>'Position in Command Structure'>")
     return (query)
 
 #  MOTD   
