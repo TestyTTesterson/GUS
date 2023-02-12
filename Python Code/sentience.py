@@ -3,14 +3,15 @@
 import gpiozero
 import time
 
-def Ping():
-    TRIG = 17
-    ECHO = 27
+#TRIG = 17
+#ECHO = 27
+
+#trigger = gpiozero.OutputDevice(TRIG)
+#echo = gpiozero.DigitalInputDevice(ECHO)
+
+def Ping(trigger, echo):
+
     pulse_start = time.time()
-
-    trigger = gpiozero.OutputDevice(TRIG)
-    echo = gpiozero.DigitalInputDevice(ECHO)
-
     trigger.on()
     time.sleep(0.00001)
     trigger.off()
@@ -26,8 +27,8 @@ def Ping():
     round_distance = round(distance, 1)
     return(round_distance)
 
-while True:
-    Ping()
+#while True:
+#    Ping()
 
 
 # TODO End of proximity sensor

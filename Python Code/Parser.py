@@ -10,11 +10,19 @@
 #  Importing sytem stuff
 import datetime 
 from locomotion import movement
+import gpiozero
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 import sentience
 
 #  /{IMPORTS}
+#  {CONSTANTS}/
+
+TRIG = 17
+ECHO = 27
+trigger = gpiozero.OutputDevice(TRIG)
+echo = gpiozero.DigitalInputDevice(ECHO)
+#  /{CONSTANTS}
 
 #  {FUNCTIONS}/
 
@@ -24,7 +32,7 @@ import sentience
 def Parse_query():
 
 		
-	query = takeCommand().lower()
+	query = GUSPrompt().lower()
 		
 	if "good boy" in query:
 		print("Eey ore!  You are such a good boy!")
@@ -51,8 +59,6 @@ def Parse_query():
 		else:
 			print('Must provide direction as 2nd argument ("travel forward") not: ' + query)
 		
-
-
 
 	######  !  END OF LOCOMOTION INTERACTION
 
@@ -81,7 +87,6 @@ def Parse_query():
 		#webbrowser.open("www.google.ca")
 		
 
-
 	# ! End of the fun stuff
 
 	# terminate the program
@@ -91,20 +96,17 @@ def Parse_query():
 		
 	#  Catch all	
 	else:
-		print("no understando!")
+		print("No understando!")
 	
-
-
 #  Take command
 
-def takeCommand():
+def GUSPrompt():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
-	query = input(str(greeting())+sentience.Ping()+">'Position in Command Structure'>")
+	query = input(str(greeting())+str(sentience.Ping(trigger, echo))+"cm>'Position in Command Structure'>")
 
 	return (query)
-
 
 #    MOTD   
 #  Standard Greeting 
@@ -119,7 +121,7 @@ def greeting():
 	# TODO but now it doesn't recognize the line break
     
 	return('''Hi!  I'm your desktop assistant, 
-	 # ###        ##### /    ##      #######    
+    # ###        ##### /    ##      #######    
     /  /###  /  ######  /  #####    /       ###  
    /  /  ###/  /#   /  /     ##### /         ##  
   /  ##   ##  /    /  #      # ##  ##        #   
