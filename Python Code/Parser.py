@@ -10,8 +10,8 @@
 #  Importing sytem stuff
 import datetime 
 from locomotion import movement
-import GUScontroller as GUSctrl
-PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+#import GUScontroller as GUSctrl
+#PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 import sentience as senses
 
 #  /{IMPORTS}
