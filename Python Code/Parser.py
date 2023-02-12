@@ -10,18 +10,19 @@
 #  Importing sytem stuff
 import datetime 
 from locomotion import movement
-import gpiozero
-#import GUScontroller as GUSctrl
-#PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
-import sentience
+import GUScontroller as GUSctrl
+PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+import sentience as senses
 
 #  /{IMPORTS}
 #  {CONSTANTS}/
 
+#  ! Pins for the proximity sensor
 TRIG = 17
 ECHO = 27
 #trigger = gpiozero.OutputDevice(TRIG)
 #echo = gpiozero.DigitalInputDevice(ECHO)
+
 #  /{CONSTANTS}
 
 #  {FUNCTIONS}/
@@ -104,7 +105,7 @@ def GUSPrompt():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
-	query = input(str(greeting())+str(sentience.Ping(TRIG, ECHO))+"cm>'Position in Command Structure'>")
+	query = input(str(greeting())+str(senses.Ping(TRIG, ECHO))+"cm>'Position in Command Structure'>")
 
 	return (query)
 
@@ -116,12 +117,13 @@ def greeting():
 	# is called it will say greeting and then
 	# take query
 
-	#  TODO I had to switch this to a return rather than a print
-	#   TODO otherwise it was printing NONE to the console 
-	# TODO but now it doesn't recognize the line break
+	#  ! I had to switch this to a return rather than a print
+	#   ! otherwise it was printing NONE to the console 
+	
     
-	return('''Hi!  I'm your desktop assistant, 
-    # ###        ##### /    ##      #######    
+	return('''Hi!  I'm your desktop assistant,
+
+   # ###        ##### /    ##      #######    
     /  /###  /  ######  /  #####    /       ###  
    /  /  ###/  /#   /  /     ##### /         ##  
   /  ##   ##  /    /  #      # ##  ##        #   
@@ -140,6 +142,7 @@ def greeting():
                                  \)              
 
 	How can I help?
+
 	''')
 
 #  /{FUNCTIONS}

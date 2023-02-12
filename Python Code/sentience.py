@@ -16,6 +16,7 @@ def Ping(TRIG, ECHO):
 
     pulse_start = time.time()
     pulse_end = time.time()
+    
     trigger.on()
     time.sleep(0.00001)
     trigger.off()
