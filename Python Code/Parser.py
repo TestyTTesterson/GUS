@@ -39,49 +39,49 @@ from GUS import GUSrobot
 #  TODO add commands
 
 def Parse_query(GUS):
-
-	query = GUSprompt()
+    from GUS import GUSrobot
+    
+    query = GUSprompt()
 	
 		
-	if "good boy" in query:
-		print("Eey ore!  You are such a good boy!")
-
-	elif "hi" in query:
-		greeting()
+    if "good boy" in query:
+        print("Eey ore!  You are such a good boy!")
+    
+    elif "hi" in query:
+        greeting()
 
 		#  Identify yourself
-	elif "controller" in query:
-		print('controllers are hard')
+    elif "controller" in query:
+        print('controllers are hard')
 		#PS4Ctrlr.listen()
 
-	elif "your name" in query:
-		print("I'm GUS, your desktop assistant")
+    elif "your name" in query:
+        print("I'm GUS, your desktop assistant")
 	
 	# TODO START OF LOCOMOTION INTERACTION
-
-	elif "travel" in query:
+    elif "travel" in query:
 		# check for travel arg
-
-		res = query.split(' ')
-		print(res[0])
-		print(len(res))
-		if len(res) > 1:
+        
+        res = query.split(' ')
+        print(res[0])
+        print(len(res))
+        if len(res) > 1:
 			#movement(res[1])
             GUS.move()
 	
-		else:
-			print('Must provide direction as 2nd argument ("travel forward") not: ' + query)
+        else:
+            print('Must provide direction as 2nd argument ("travel forward") not: ' + query)
 		
 
 	######  !  END OF LOCOMOTION INTERACTION
 
 	# Kinda fun optional functionality
 
-	elif "wikipedia" in query:
+    elif "wikipedia" in query:
 			
 			# from wikipedia
-		print("Checking wikipedia ")
-		query = query.replace("wikipedia", "")
+        print("Checking wikipedia ")
+        query = query.replace("wikipedia", "")
 			
 			# summary of 4 lines from
 			# wikipedia can be increased and decreased
@@ -89,11 +89,11 @@ def Parse_query(GUS):
 		# TODO I had to comment this out due to dep issues on GUS
 
 		#result = wikipedia.summary(query, sentences=4)
-		print("According to wikipedia")
-		print("result")
+        print("According to wikipedia")
+        print("result")
 
-	elif "google" in query:
-		print("Opening Google ")
+    elif "google" in query:
+        print("Opening Google ")
 
 		# TODO I had to comment this out due to dep issues on GUS
 
@@ -103,27 +103,16 @@ def Parse_query(GUS):
 	# ! End of the fun stuff
 
 	# terminate the program
-	elif "bye" in query:
-		print("Buh Bye")
-		exit()
+    elif "bye" in query:
+        print("Buh Bye")
+        exit()
 		
 	#  Catch all	
-	else:
-		print("No understando!")
+    else:
+        print("No understando!")
 	
-#  Take command
-
-
 
 #  MOTD   
 #  Standard Greeting  moved to greeting.py
-
-
-
-#  /{FUNCTIONS}
-
 #  MAIN
 # main method moved to GUS.py
-
-
-	
