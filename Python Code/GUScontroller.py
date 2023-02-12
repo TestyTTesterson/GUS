@@ -25,8 +25,7 @@ class MyController(Controller):
         return super().on_x_release()
     
     def on_triangle_press(self):
-        parser.PS4Ctrlr.stop()
-
+        
         return super().on_triangle_press()
     
     def on_triangle_release(self):

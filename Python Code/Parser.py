@@ -54,7 +54,7 @@ def Parse_query():
 
 
 	######  !  END OF LOCOMOTION INTERACTION
-	
+
 	# Kinda fun optional functionality
 
 	elif "wikipedia" in query:
@@ -66,12 +66,17 @@ def Parse_query():
 			# summary of 4 lines from
 			# wikipedia can be increased and decreased
 
+		# TODO I had to comment this out due to dep issues on GUS
+
 		#result = wikipedia.summary(query, sentences=4)
 		print("According to wikipedia")
 		print("result")
 
 	elif "google" in query:
 		print("Opening Google ")
+
+		# TODO I had to comment this out due to dep issues on GUS
+
 		#webbrowser.open("www.google.ca")
 		
 
@@ -112,7 +117,26 @@ def greeting():
 	#   TODO otherwise it was printing NONE to the console 
 	# TODO but now it doesn't recognize the line break
     
-	return("Hi!  I'm your desktop assistant, GUS. How can I help?/n")
+	return('''Hi!  I'm your desktop assistant, 
+	 # ###        ##### /    ##      #######    
+    /  /###  /  ######  /  #####    /       ###  
+   /  /  ###/  /#   /  /     ##### /         ##  
+  /  ##   ##  /    /  #      # ##  ##        #   
+ /  ###           /  #       #      ###          
+##   ##          ##          #     ## ###        
+##   ##   ###    ##          #      ### ###      
+##   ##  /###  / ##          #        ### ###    
+##   ## /  ###/  ##          #          ### /##  
+##   ##/    ##   ##          #            #/ /## 
+ ##  ##     #     ##         #             #/ ## 
+  ## #      /      ##        #              # /  
+   ###     /        ###      /    /##        /   
+    ######/          #######/    /  ########/    
+      ###              ####     /     #####      
+                                |                
+                                 \)              
+
+	How can I help?/n''')
 
 #  /{FUNCTIONS}
 
