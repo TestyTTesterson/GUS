@@ -10,7 +10,8 @@
 #  Importing sytem stuff
 import datetime 
 from locomotion import movement
-
+import GUScontroller as GUSctrl
+PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 
 #  /{IMPORTS}
 
@@ -31,6 +32,9 @@ def Parse_query():
 		greeting()
 
 		#  Identify yourself
+	elif "controller" in query:
+
+		PS4Ctrlr.listen()
 
 	elif "your name" in query:
 		print("I'm GUS, your desktop assistant")
@@ -50,6 +54,7 @@ def Parse_query():
 
 
 	######  !  END OF LOCOMOTION INTERACTION
+	
 	# Kinda fun optional functionality
 
 	elif "wikipedia" in query:
@@ -71,16 +76,14 @@ def Parse_query():
 		
 
 
-	#  End of the fun stuff
+	# ! End of the fun stuff
 
 	# terminate the program
-
 	elif "bye" in query:
 		print("Buh Bye")
 		exit()
 		
-		#  Catch all
-			
+	#  Catch all	
 	else:
 		print("no understando!")
 	
