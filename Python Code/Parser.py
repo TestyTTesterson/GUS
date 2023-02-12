@@ -22,7 +22,7 @@ import datetime
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 #import sentience as senses
-from prompt import GUSprompt
+from prompt import GUSPrompt
 from greeting import greeting
 from GUS import GUSrobot
 
@@ -41,7 +41,7 @@ from GUS import GUSrobot
 def Parse_query(GUS):
     from GUS import GUSrobot
     
-    query = GUSprompt()
+    query = GUSPrompt()
 	
 		
     if "good boy" in query:
