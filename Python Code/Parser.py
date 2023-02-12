@@ -1,8 +1,8 @@
 #  {CONSTANTS}/
 
 #  ! Pins for the proximity sensor
-TRIG = 17
-ECHO = 27
+#TRIG = 17
+#ECHO = 27
 #trigger = gpiozero.OutputDevice(TRIG)
 #echo = gpiozero.DigitalInputDevice(ECHO)
 
@@ -18,12 +18,17 @@ ECHO = 27
 
 #  Importing sytem stuff
 import datetime 
-from locomotion import movement
+#from locomotion import movement
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
-import sentience as senses
-trigger = senses.gpiozero.OutputDevice(TRIG,active_high=None)
-echo = senses.gpiozero.DigitalInputDevice(ECHO,active_state=None)
+#import sentience as senses
+from prompt import GUSprompt
+from greeting import greeting
+from GUS import GUSrobot
+
+
+#trigger = senses.gpiozero.OutputDevice(TRIG,active_high=None)
+#echo = senses.gpiozero.DigitalInputDevice(ECHO,active_state=None)
 
 #  /{IMPORTS}
 
@@ -33,10 +38,10 @@ echo = senses.gpiozero.DigitalInputDevice(ECHO,active_state=None)
 #  Parser
 #  TODO add commands
 
-def Parse_query():
+def Parse_query(GUS):
 
-		
-	query = GUSPrompt().lower()
+	query = GUSprompt()
+	
 		
 	if "good boy" in query:
 		print("Eey ore!  You are such a good boy!")
@@ -55,11 +60,15 @@ def Parse_query():
 	# TODO START OF LOCOMOTION INTERACTION
 
 	elif "travel" in query:
+		# check for travel arg
+
 		res = query.split(' ')
 		print(res[0])
 		print(len(res))
 		if len(res) > 1:
-			movement(res[1])
+			#movement(res[1])
+            GUS.move()
+	
 		else:
 			print('Must provide direction as 2nd argument ("travel forward") not: ' + query)
 		
@@ -104,64 +113,17 @@ def Parse_query():
 	
 #  Take command
 
-def GUSPrompt():
 
-	# TODO add a prompt instead of using the greeting
-	# TODO The prompt should be here instead
-
-    print(greeting())
-    print('***BEFORE INPUT***')
-    query = input()
-    print('***AFTER***')
-    stupidTempVar=str(senses.Ping(TRIG, ECHO, trigger, echo))
-    print(stupidTempVar + "cm>'Position in Command Structure'>")
-    return (query)
 
 #  MOTD   
-#  Standard Greeting 
+#  Standard Greeting  moved to greeting.py
 
-def greeting():
-	# This function is for when the assistant
-	# is called it will say greeting and then
-	# take query
 
-	#  ! I had to switch this to a return rather than a print
-	#   ! otherwise it was printing NONE to the console 
-	
-    
-	return('''Hi!  I'm your desktop assistant,
-
-   # ###        ##### /    ##      #######    
-    /  /###  /  ######  /  #####    /       ###  
-   /  /  ###/  /#   /  /     ##### /         ##  
-  /  ##   ##  /    /  #      # ##  ##        #   
- /  ###           /  #       #      ###          
-##   ##          ##          #     ## ###        
-##   ##   ###    ##          #      ### ###      
-##   ##  /###  / ##          #        ### ###    
-##   ## /  ###/  ##          #          ### /##  
-##   ##/    ##   ##          #            #/ /## 
- ##  ##     #     ##         #             #/ ## 
-  ## #      /      ##        #              # /  
-   ###     /        ###      /    /##        /   
-    ######/          #######/    /  ########/    
-      ###              ####     /     #####      
-                                |                
-                                 \)              
-
-	How can I help?
-
-	''')
 
 #  /{FUNCTIONS}
 
 #  MAIN
+# main method moved to GUS.py
 
-if __name__ == '__main__':
-     
-    # main method
 
-	#  I prefer the while loop to be out here
-	while(True):
-		Parse_query()
 	
