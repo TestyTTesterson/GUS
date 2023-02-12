@@ -12,7 +12,7 @@ import time
 def Ping(TRIG, ECHO):
 
     trigger = gpiozero.OutputDevice(TRIG,active_high=None)
-    echo = gpiozero.DigitalInputDevice(ECHO,active_state=True)
+    echo = gpiozero.DigitalInputDevice(ECHO,active_state=None)
 
     pulse_start = time.time()
     pulse_end = time.time()
