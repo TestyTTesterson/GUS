@@ -1,8 +1,9 @@
 import gpiozero
 import time
 
-TRIG = 23
-ECHO = 24
+TRIG = 17
+ECHO = 27
+pulse_start = time.time()
 
 trigger = gpiozero.OutputDevice(TRIG)
 echo = gpiozero.DigitalInputDevice(ECHO)

@@ -10,8 +10,9 @@
 #  Importing sytem stuff
 import datetime 
 from locomotion import movement
-import GUScontroller as GUSctrl
+#import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+import sentience
 
 #  /{IMPORTS}
 
@@ -100,7 +101,7 @@ def takeCommand():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
-	query = input(str(greeting())+"'Position in the World'>'Position in Command Structure'>")
+	query = input(str(greeting())+sentience.Ping()+">'Position in Command Structure'>")
 
 	return (query)
 
