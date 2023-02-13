@@ -23,7 +23,7 @@ def Parse_query(GUS):
 
         if len(res) > 1:
 			#movement(res[1])
-            GUS.move(res[0])
+            GUS.move(res[0], GUS)
         else:
             print('Must provide direction as 2nd argument ("travel [arg]") not: ' + query)
             print('''
@@ -35,7 +35,7 @@ def Parse_query(GUS):
 
             if len(stupidTempvartravelparser) == 1:
 			    #movement(res[1])
-                GUS.move(stupidTempvartravelparser)
+                GUS.move(stupidTempvartravelparser, GUS)
             else:
                 print('No hablo whatever that was.')
 	######  !  END OF LOCOMOTION INTERACTION

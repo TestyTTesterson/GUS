@@ -10,6 +10,6 @@ def GUSPrompt(GUS):
     query = input()
     print('***AFTER***')
     stupidTempVar=str(GUS.locate())
-    
+
     print(stupidTempVar + "cm>'Position in Command Structure'>")
     return (query)
