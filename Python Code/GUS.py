@@ -11,7 +11,7 @@ echo = senses.gpiozero.DigitalInputDevice(ECHO)
 class GUSrobot:
     def __init__(self, name, location, stepdistance, avoision, leftMotor, rightMotor):
         self.name = 'GUS 0.1.2'
-        self.location = [0, 0, 0] # x, y, and yaw
+        self.location = [0.0, 0.0, 0.0] # x, y, and yaw
         self.stepdistance = 1
         self.avoision = False
         self.leftMotor = 'Motor.Object.Left'
@@ -20,7 +20,7 @@ class GUSrobot:
         return f"{self.name}"
     def locate(self):
         yetanotherstupidTempVar=str(senses.Ping(TRIG, ECHO, trigger, echo))
-        self.location[3] = int(yetanotherstupidTempVar)
+        self.location[3] = yetanotherstupidTempVar
         return(yetanotherstupidTempVar)
     def move(self):
         moveIt.movement()
