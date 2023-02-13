@@ -1,7 +1,5 @@
 from greeting import greeting
-
 from GUS import GUS
-
 
 def GUSPrompt():
 
@@ -14,6 +12,5 @@ def GUSPrompt():
     print('***AFTER***')
     stupidTempVar=str(GUS.locate())
     
-    #####(senses.Ping(TRIG, ECHO, trigger, echo))
     print(stupidTempVar + "cm>'Position in Command Structure'>")
     return (query)

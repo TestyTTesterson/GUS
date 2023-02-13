@@ -1,101 +1,65 @@
 
-
-# import RPi.# GPIO as # GPIO 
 import gpiozero
 from time import sleep
-
-#ledViolet = gpiozero.#led(23)
-#ledGreen = gpiozero.#led(24)
-#ledRed = gpiozero.#led(25)
-#ledYellow = gpiozero.#led(26)
-# in1 = 24
-# in2 = 23
-en = 25
-
-# TODO Must figure out this part instead of using #led.ON/OFF
+from GUS import GUS
+from collisiondetection import checkpath
+#  this is what we have to multiply the step distance by in order to get
+#  the length of time to run the motor.
+stepDistanceTimeconversion = 1
+rotationMultiplier = 1
 
 def movement(command):
-    # moved this inside the method for obvi reasons
-    # thankfully it wasn't still just named temp
-    forgettabletempvarname=1
-    motorBurstmultiplier=1
-
-    # TODO add move by steps functionality
-
-    if 'h' in command:
-        print("halt")
-        #ledRed.on()
-        sleep(1)
-        #ledRed.off()
-        #myMotor.stop
-        
-
-    elif 'l' in command:
-        print('left')
-
-    elif 'r' in command:
-        print('right')
-
-    elif 'f' in command:
-        print("forward")
-        #myMotor.forward()
-        #ledGreen.on()
-        sleep(1)
-        #ledGreen.off()
-        forgettabletempvarname=1
-        
-
-    elif 'b' in command:
-        print("back")
-        #myMotor.backward()
-        #ledYellow.on()
-        sleep(1)
-        #ledYellow.off()
-        forgettabletempvarname=0
-
-    # TODO add turns    
-
-    elif 'w' in command:
-        print("walk")
-        #motorSpeed=0.25
-        #ledViolet.on()
-        sleep(1)
-        #ledViolet.off()
-        # p.ChangeDutyCycle(25)
-       
-
-    elif 't' in command:
-        print("trot")
-        #motorSpeed=0.5
-        #ledYellow.on()
-        sleep(1)
-        #ledYellow.off()
-        # p.ChangeDutyCycle(50)
-        
-
-    elif 'g' in command:
-        print("gallop")
-        #motorSpeed=0.75
-        # p.ChangeDutyCycle(75)
-        #ledRed.on()
-        sleep(1)
-        #ledRed.off()
-
-    #  TODO add the turning function
-
-    # I'm thinking just a 90 degree turn but not sure what that will look like until
-    # I interact with the motor    
-    elif 'e' in command:
-        # GPIO.cleanup()
-
-        exit()
     
+    if checkpath() == False:
+
+        if 'n' in command:
+            print("(n)o go")
+            GUS.leftMotor = 'STOP!!!'
+            GUS.rightMotor = 'STOP!!!'
+
+        elif 'f' in command:
+            print("(f)orward")
+            GUS.leftMotor = 'Forward for for (stepMutltiplier * GUS.stepdistance) seconds'
+            GUS.rightMotor = 'Forward for (stepMultiplier * GUS.stepdistance) seconds'
+
+        elif 'b' in command:
+            print("(b)ack")
+            GUS.leftMotor = 'Reverse for for (stepMutltiplier * GUS.stepdistance) seconds'
+            GUS.rightMotor = 'Reverse for (stepMultiplier * GUS.stepdistance) seconds'
+
+        elif 'l' in command:
+            print('(l)eft')
+            GUS.leftMotor = 'Reverse for for (rotationMutltiplier) seconds'
+            GUS.rightMotor = 'Forward for (rotationMultiplier) seconds'
+            GUS.leftMotor = 'STOP!!!'
+            GUS.rightMotor = 'STOP!!!'
+
+        elif 'r' in command:
+            print('(r)ight')
+            GUS.rightMotor = 'Reverse for for (rotationMutltiplier) seconds'
+            GUS.leftMotor = 'Forward for (rotationMultiplier) seconds'
+            GUS.leftMotor = 'STOP!!!'
+            GUS.rightMotor = 'STOP!!!'
+
+        elif 'w' in command:
+            print("(w)alk")
+            GUS.stepdistance = 0.25
+
+        elif 't' in command:
+            print("(t)rot")
+            GUS.stepdistance = 0.5
+        
+        elif 'g' in command:
+            print("(g)allop")
+            GUS.stepdistance = 0.75
+  
+        elif 'e' in command:
+        
+            exit()
+    
+        else:
+            print("<<<  wrong data  >>>")
+            print("please enter the defined data to continue.....")
     else:
-        print("<<<  wrong data  >>>")
-        print("please enter the defined data to continue.....")
+        print("Evasion required!")
 
-
-# print("\n")
-# print("The default speed & direction of motor is LOW & Forward.....")
-# print("r-run s-stop f-forward b-backward l-low m-medium h-high e-ecommandit")
-# print("\n")
