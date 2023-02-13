@@ -3,15 +3,14 @@
 import datetime 
 from prompt import GUSPrompt
 from greeting import greeting
-from GUS import GUS
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 #  Text to Speech
 #  import pyttsx3
 
-def Parse_query():
+def Parse_query(GUS):
     
-    query = GUSPrompt()
+    query = GUSPrompt(GUS)
 	
 	# TODO START OF LOCOMOTION INTERACTION
     if "travel" in query:

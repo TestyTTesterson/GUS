@@ -27,8 +27,7 @@ class GUSrobot:
     rightMotor = 'Motor.Object.Right'
 
 GUS=GUSrobot
-
-        
+    
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
     while(True):

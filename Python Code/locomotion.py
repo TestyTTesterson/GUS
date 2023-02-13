@@ -1,14 +1,13 @@
 
 import gpiozero
 from time import sleep
-from GUS import GUS
 from collisiondetection import checkpath
 #  this is what we have to multiply the step distance by in order to get
 #  the length of time to run the motor.
 stepDistanceTimeconversion = 1
 rotationMultiplier = 1
 
-def movement(command):
+def movement(command, GUS):
     
     if checkpath() == False:
 

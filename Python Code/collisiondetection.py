@@ -1,6 +1,5 @@
-from GUS import GUS
 
-def checkpath():
+def checkpath(GUS):
     if GUS.locate < 10:
         GUS.avoision = True
         return(True)
