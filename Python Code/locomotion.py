@@ -18,15 +18,23 @@ def movement(command):
     # moved this inside the method for obvi reasons
     # thankfully it wasn't still just named temp
     forgettabletempvarname=1
-    motorSpeed=1
+    motorBurstmultiplier=1
 
-    if 's' in command:
-        print("stop")
+    # TODO add move by steps functionality
+
+    if 'h' in command:
+        print("halt")
         #ledRed.on()
         sleep(1)
         #ledRed.off()
         #myMotor.stop
         
+
+    elif 'l' in command:
+        print('left')
+
+    elif 'r' in command:
+        print('right')
 
     elif 'f' in command:
         print("forward")
@@ -44,10 +52,11 @@ def movement(command):
         sleep(1)
         #ledYellow.off()
         forgettabletempvarname=0
-        
 
-    elif 'l' in command:
-        print("low")
+    # TODO add turns    
+
+    elif 'w' in command:
+        print("walk")
         #motorSpeed=0.25
         #ledViolet.on()
         sleep(1)
@@ -55,8 +64,8 @@ def movement(command):
         # p.ChangeDutyCycle(25)
        
 
-    elif 'm' in command:
-        print("medium")
+    elif 't' in command:
+        print("trot")
         #motorSpeed=0.5
         #ledYellow.on()
         sleep(1)
@@ -64,8 +73,8 @@ def movement(command):
         # p.ChangeDutyCycle(50)
         
 
-    elif 'h' in command:
-        print("high")
+    elif 'g' in command:
+        print("gallop")
         #motorSpeed=0.75
         # p.ChangeDutyCycle(75)
         #ledRed.on()
@@ -73,6 +82,7 @@ def movement(command):
         #ledRed.off()
 
     #  TODO add the turning function
+
     # I'm thinking just a 90 degree turn but not sure what that will look like until
     # I interact with the motor    
     elif 'e' in command:
