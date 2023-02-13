@@ -1,6 +1,6 @@
 from greeting import greeting
-
-def GUSPrompt(GUS):
+from GUS import GUS
+def GUSPrompt():
 
 	# TODO add a prompt instead of using the greeting
 	# TODO The prompt should be here instead
