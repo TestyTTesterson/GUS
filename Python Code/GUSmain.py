@@ -1,4 +1,5 @@
 import Parser
+import greeting
 #import gpiozero
 import sentience as senses
 import locomotion as moveIt
@@ -30,5 +31,6 @@ GUS=GUSrobot
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
     while(True):
-	    Parser.Parse_query(GUS)
+        print(greeting())
+        Parser.Parse_query(GUS)
             
