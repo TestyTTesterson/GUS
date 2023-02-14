@@ -1,12 +1,13 @@
 import Parser
+import gpiozero
 import sentience as senses
 import locomotion as moveIt
 
 TRIG = 17
 ECHO = 27
 
-trigger = senses.gpiozero.OutputDevice(TRIG)
-echo = senses.gpiozero.DigitalInputDevice(ECHO)
+trigger = gpiozero.OutputDevice(TRIG)
+echo = gpiozero.DigitalInputDevice(ECHO)
 
 class GUSrobot:
     def __init__(self, name, location, stepdistance, avoision, leftMotor, rightMotor):

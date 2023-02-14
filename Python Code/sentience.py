@@ -1,6 +1,5 @@
-# TODO Begin proximity sensor
+# ! Begin proximity sensor
 
-import gpiozero
 import time
 
 def Ping(TRIG, ECHO, trigger, echo):
