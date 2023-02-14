@@ -8,9 +8,7 @@ stepDistanceTimeconversion = 1
 rotationMultiplier = 1
 wheels=gpiozero.Robot(left=(5,6),right=(16,19))
 def movement(GUS, command):
-    if len(command)==2:
-        command=str(command[1])
-        
+    
 #    if checkpath(GUS) == False:
 
         if 'n' in command:
@@ -28,11 +26,17 @@ def movement(GUS, command):
 
         elif 'b' in command:
             print("(b)ack")
+            wheels.backward()
+            sleep(GUS.stepdistance)
+            wheels.stop()
             #GUS.leftMotor = 'Reverse for for (stepMutltiplier * GUS.stepdistance) seconds'
             #GUS.rightMotor = 'Reverse for (stepMultiplier * GUS.stepdistance) seconds'
 
         elif 'l' in command:
             print('(l)eft')
+            wheels.left()
+            sleep(GUS.stepdistance)
+            wheels.stop()
             #GUS.leftMotor = 'Reverse for for (rotationMutltiplier) seconds'
             #GUS.rightMotor = 'Forward for (rotationMultiplier) seconds'
             #GUS.leftMotor = 'STOP!!!'
@@ -40,6 +44,9 @@ def movement(GUS, command):
 
         elif 'r' in command:
             print('(r)ight')
+            wheels.right()
+            sleep(GUS.stepdistance)
+            wheels.stop()
             #GUS.rightMotor = 'Reverse for for (rotationMutltiplier) seconds'
             #GUS.leftMotor = 'Forward for (rotationMultiplier) seconds'
             #GUS.leftMotor = 'STOP!!!'
@@ -56,10 +63,6 @@ def movement(GUS, command):
         elif 'g' in command:
             print("(g)allop")
             GUS.stepdistance = 0.75
-  
-        elif 'e' in command:
-        
-            exit()
     
         else:
             print("<<<  wrong data  >>>")

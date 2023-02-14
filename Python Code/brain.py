@@ -13,7 +13,7 @@ def brain(GUS):
     query = GUSPrompt(GUS)
 	
 	# TODO START OF LOCOMOTION INTERACTION
-    if "travel" in query:
+    if "move" in query:
 
 		# check travel arg for proper input
         
@@ -26,7 +26,7 @@ def brain(GUS):
             responseTemp=str(res[1])
             GUS.move(GUS, responseTemp)
         else:
-            print('Must provide direction as 2nd argument ("travel [arg]") not: ' + query)
+            print('Must provide direction as 2nd argument ("move [arg]") not: ' + query)
             print('''
             Halt!                 (n)o go
             Move!     f)orward    (b)ackward  (l)eft  (r)ight
