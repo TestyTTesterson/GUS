@@ -3,24 +3,22 @@ import gpiozero
 import sentience as senses
 import locomotion as moveIt
 
-TRIG = 17
-ECHO = 27
-
-trigger = gpiozero.OutputDevice(TRIG)
-echo = gpiozero.DigitalInputDevice(ECHO)
-
 class GUSrobot:
-    def __init__(self, name, location, stepdistance, avoision, leftMotor, rightMotor):
+    def __init__(self, name, location, stepdistance, avoision, leftMotor, rightMotor, TRIG, ECHO, trigger, echo):
         self.name = 'GUS 0.1.2'
         self.location = [0, 0, 0] # x, y, and yaw
         self.stepdistance = 1
         self.avoision = False
         self.leftMotor = 'Motor.Object.Left'
         self.rightMotor = 'Motor.Object.Right'
+        self.TRIG = 17
+        self.ECHO = 27
+        self.trigger = gpiozero.OutputDevice(self.TRIG)
+        self.echo = gpiozero.DigitalInputDevice(self.ECHO)
     def __str__(self):
         return f"{self.name}"
     def locate(self):
-        yetanotherstupidTempVar=str(senses.Ping(TRIG, ECHO, trigger, echo))
+        yetanotherstupidTempVar=str(senses.Ping(self.TRIG, self.ECHO, self.trigger, self.echo))
         self.location[3] = float(yetanotherstupidTempVar)
         return(yetanotherstupidTempVar)
     def move(self):

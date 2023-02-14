@@ -10,7 +10,7 @@ from greeting import greeting
 
 def Parse_query(GUS):
     
-    query = GUSPrompt()
+    query = GUSPrompt(GUS)
 	
 	# TODO START OF LOCOMOTION INTERACTION
     if "travel" in query:
