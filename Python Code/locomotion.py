@@ -7,7 +7,7 @@ from collisiondetection import checkpath
 stepDistanceTimeconversion = 1
 rotationMultiplier = 1
 
-def movement(command, GUS):
+def movement(GUS, command):
     
     if checkpath() == False:
 

@@ -22,7 +22,7 @@ class GUSrobot:
         yetanotherstupidTempVar=str(senses.Ping())
         #self.location[3] = float(yetanotherstupidTempVar)
         return(yetanotherstupidTempVar)
-    def move(self):
+    def move(self, command):
         moveIt.movement()
 
 GUS=GUSrobot

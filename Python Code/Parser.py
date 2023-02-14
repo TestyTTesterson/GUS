@@ -35,7 +35,7 @@ def Parse_query(GUS):
 
             if len(stupidTempvartravelparser) == 1:
 			    #movement(res[1])
-                GUS.move(stupidTempvartravelparser, GUS)
+                GUS.move(GUS, stupidTempvartravelparser)
             else:
                 print('No hablo whatever that was.')
 	######  !  END OF LOCOMOTION INTERACTION
