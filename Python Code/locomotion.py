@@ -9,7 +9,7 @@ rotationMultiplier = 1
 
 def movement(GUS, command):
     
-    if checkpath() == False:
+    if checkpath(GUS) == False:
 
         if 'n' in command:
             print("(n)o go")
