@@ -1,5 +1,5 @@
-import Parser
-import greeting
+from brain import brain
+from greeting import greeting
 #import gpiozero
 import sentience as senses
 import locomotion as moveIt
@@ -32,5 +32,5 @@ GUS=GUSrobot
 if __name__ == '__main__':
     while(True):
         print(greeting())
-        Parser.Parse_query(GUS)
+        brain(GUS)
             

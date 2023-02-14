@@ -8,7 +8,7 @@ from greeting import greeting
 #  Text to Speech
 #  import pyttsx3
 
-def Parse_query(GUS):
+def brain(GUS):
     
     query = GUSPrompt(GUS)
 	
