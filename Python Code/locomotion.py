@@ -9,7 +9,7 @@ rotationMultiplier = 1
 wheels=gpiozero.Robot(left=(5,6),right=(16,19))
 def movement(GUS, command):
     
-    if checkpath(GUS) == False:
+#    if checkpath(GUS) == False:
 
         if 'n' in command:
             print("(n)o go")
@@ -62,6 +62,6 @@ def movement(GUS, command):
         else:
             print("<<<  wrong data  >>>")
             print("please enter the defined data to continue.....")
-    else:
-        print("Evasion required!")
+ #   else:
+ #       print("Evasion required!")
 
