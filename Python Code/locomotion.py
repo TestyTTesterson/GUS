@@ -6,7 +6,7 @@ from collisiondetection import checkpath
 #  the length of time to run the motor.
 stepDistanceTimeconversion = 1
 rotationMultiplier = 1
-
+wheels=gpiozero.Robot(left=(5,6),right=(16,19))
 def movement(GUS, command):
     
     if checkpath(GUS) == False:
@@ -18,8 +18,11 @@ def movement(GUS, command):
 
         elif 'f' in command:
             print("(f)orward")
-            GUS.leftMotor = 'Forward for for (stepMutltiplier * GUS.stepdistance) seconds'
-            GUS.rightMotor = 'Forward for (stepMultiplier * GUS.stepdistance) seconds'
+            wheels.forward()
+            sleep(GUS.stepdistance)
+            wheels.stop()
+            #GUS.leftMotor = 'Forward for for (stepMutltiplier * GUS.stepdistance) seconds'
+            #GUS.rightMotor = 'Forward for (stepMultiplier * GUS.stepdistance) seconds'
 
         elif 'b' in command:
             print("(b)ack")

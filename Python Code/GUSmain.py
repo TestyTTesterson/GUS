@@ -5,14 +5,14 @@ import sentience as senses
 import locomotion as moveIt
 
 class GUSrobot:
-    def __init__(self, name, location, stepdistance, avoision, leftMotor, rightMotor):
+    def __init__(self, name, location, stepdistance, avoision):
         #  args    TRIG, ECHO, trigger, echo
         self.name = 'GUS 0.1.2'
         self.location = [0, 0, 0] # x, y, and yaw
         self.stepdistance = 1
         self.avoision = False
-        self.leftMotor = 'Motor.Object.Left'
-        self.rightMotor = 'Motor.Object.Right'
+        #self.leftMotor = 'Motor.Object.Left'
+        #self.rightMotor = 'Motor.Object.Right'
         #self.TRIG = 17
         #self.ECHO = 27
         #self.trigger = gpiozero.OutputDevice(self.TRIG)
