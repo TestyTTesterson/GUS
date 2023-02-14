@@ -35,7 +35,8 @@ def brain(GUS):
 
             if len(stupidTempvartravelparser) == 1:
 			    #movement(res[1])
-                GUS.move(GUS, stupidTempvartravelparser[1])
+                stupidTempvartravelparser2=str(stupidTempvartravelparser(1))
+                GUS.move(GUS, stupidTempvartravelparser2)
             else:
                 print('No hablo whatever that was.')
 	######  !  END OF LOCOMOTION INTERACTION
