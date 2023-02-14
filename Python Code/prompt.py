@@ -7,8 +7,9 @@ def GUSPrompt(GUS):
 
     
     print('***BEFORE INPUT***')
-    query = input()
+    
     print('***AFTER***')
-    stupidTempVar=GUS.locate(GUS)
+    stupidTempVar=str(GUS.locate(GUS))
     print(stupidTempVar + "cm>'Position in Command Structure'>")
+    query = input()
     return (query)
