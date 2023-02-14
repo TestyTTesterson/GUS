@@ -5,7 +5,7 @@ import sentience as senses
 import locomotion as moveIt
 
 class GUSrobot:
-    def __init__(self, name, location, stepdistance, avoision):
+    def __init__(self, name, location, avoision):
         #  args    TRIG, ECHO, trigger, echo
         self.name = 'GUS 0.1.2'
         self.location = [0, 0, 0] # x, y, and yaw
