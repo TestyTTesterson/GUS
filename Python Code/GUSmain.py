@@ -25,7 +25,7 @@ class GUSrobot:
         return(yetanotherstupidTempVar)
     def move(self, command):
         moveIt.movement(self, command)
-    stepdistance = 1
+    stepdistance = 1.0
 
 GUS=GUSrobot
 
