@@ -31,7 +31,7 @@ def Parse_query(GUS):
             Move!     f)orward    (b)ackward  (l)eft  (r)ight
             Speed!        (w)alk  (t)rot  (g)allop (s)tep distance
             ''')
-            stupidTempvartravelparser=GUSPrompt().split(" ")
+            stupidTempvartravelparser=GUSPrompt(GUS).split(" ")
 
             if len(stupidTempvartravelparser) == 1:
 			    #movement(res[1])
