@@ -1,6 +1,6 @@
 
 def checkpath(GUS):
-    collisionTempvar = float(GUS.locate(GUS))
+    collisionTempvar = GUS.locate(GUS)
     if collisionTempvar < 10:
         GUS.avoision = True
         return(True)

@@ -20,7 +20,7 @@ class GUSrobot:
     def __str__(self):
         return f"{self.name}"
     def locate(self):
-        yetanotherstupidTempVar=str(senses.Ping())
+        yetanotherstupidTempVar=senses.Ping()
         #self.location[3] = float(yetanotherstupidTempVar)
         return(yetanotherstupidTempVar)
     def move(self, command):
