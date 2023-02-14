@@ -9,7 +9,7 @@ class GUSrobot:
         #  args    TRIG, ECHO, trigger, echo
         self.name = 'GUS 0.1.2'
         self.location = [0, 0, 0] # x, y, and yaw
-        self.stepdistance = 1
+        
         self.avoision = False
         #self.leftMotor = 'Motor.Object.Left'
         #self.rightMotor = 'Motor.Object.Right'
@@ -25,6 +25,7 @@ class GUSrobot:
         return(yetanotherstupidTempVar)
     def move(self, command):
         moveIt.movement(self, command)
+    stepdistance = 1
 
 GUS=GUSrobot
 
