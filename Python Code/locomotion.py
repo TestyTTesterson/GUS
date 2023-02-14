@@ -13,8 +13,8 @@ def movement(GUS, command):
 
         if 'n' in command:
             print("(n)o go")
-            GUS.leftMotor = 'STOP!!!'
-            GUS.rightMotor = 'STOP!!!'
+            wheels.stop()
+            # GUS.rightMotor = 'STOP!!!'
 
         elif 'f' in command:
             print("(f)orward")
@@ -26,22 +26,22 @@ def movement(GUS, command):
 
         elif 'b' in command:
             print("(b)ack")
-            GUS.leftMotor = 'Reverse for for (stepMutltiplier * GUS.stepdistance) seconds'
-            GUS.rightMotor = 'Reverse for (stepMultiplier * GUS.stepdistance) seconds'
+            #GUS.leftMotor = 'Reverse for for (stepMutltiplier * GUS.stepdistance) seconds'
+            #GUS.rightMotor = 'Reverse for (stepMultiplier * GUS.stepdistance) seconds'
 
         elif 'l' in command:
             print('(l)eft')
-            GUS.leftMotor = 'Reverse for for (rotationMutltiplier) seconds'
-            GUS.rightMotor = 'Forward for (rotationMultiplier) seconds'
-            GUS.leftMotor = 'STOP!!!'
-            GUS.rightMotor = 'STOP!!!'
+            #GUS.leftMotor = 'Reverse for for (rotationMutltiplier) seconds'
+            #GUS.rightMotor = 'Forward for (rotationMultiplier) seconds'
+            #GUS.leftMotor = 'STOP!!!'
+            #GUS.rightMotor = 'STOP!!!'
 
         elif 'r' in command:
             print('(r)ight')
-            GUS.rightMotor = 'Reverse for for (rotationMutltiplier) seconds'
-            GUS.leftMotor = 'Forward for (rotationMultiplier) seconds'
-            GUS.leftMotor = 'STOP!!!'
-            GUS.rightMotor = 'STOP!!!'
+            #GUS.rightMotor = 'Reverse for for (rotationMutltiplier) seconds'
+            #GUS.leftMotor = 'Forward for (rotationMultiplier) seconds'
+            #GUS.leftMotor = 'STOP!!!'
+            #GUS.rightMotor = 'STOP!!!'
 
         elif 'w' in command:
             print("(w)alk")
