@@ -8,7 +8,9 @@ stepDistanceTimeconversion = 1
 rotationMultiplier = 1
 wheels=gpiozero.Robot(left=(5,6),right=(16,19))
 def movement(GUS, command):
-    
+    if len(command)==2:
+        command=str(command[1])
+        
 #    if checkpath(GUS) == False:
 
         if 'n' in command:
