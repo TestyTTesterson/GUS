@@ -23,7 +23,7 @@ def brain(GUS):
 
         if len(res) > 1:
 			#movement(res[1])
-            GUS.move(res[0], GUS)
+            GUS.move(res[1], GUS)
         else:
             print('Must provide direction as 2nd argument ("travel [arg]") not: ' + query)
             print('''
