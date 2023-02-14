@@ -1,9 +1,14 @@
 # ! Begin proximity sensor
 
 import time
+import gpiozero
+TRIG = 17
+ECHO = 27
+trigger = gpiozero.OutputDevice(TRIG)
+echo = gpiozero.DigitalInputDevice(ECHO)
 
-def Ping(TRIG, ECHO, trigger, echo):
-
+def Ping():
+    # args   TRIG, ECHO, trigger, echo
     pulse_start = time.time()
     pulse_end = time.time()
 
