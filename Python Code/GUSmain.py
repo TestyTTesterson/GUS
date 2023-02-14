@@ -23,7 +23,7 @@ class GUSrobot:
         #self.location[3] = float(yetanotherstupidTempVar)
         return(yetanotherstupidTempVar)
     def move(self, command):
-        moveIt.movement()
+        moveIt.movement(self, command)
 
 GUS=GUSrobot
 
