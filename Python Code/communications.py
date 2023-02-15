@@ -21,8 +21,8 @@ plug.setblocking(False)
 
 chooser.register(plug, selectors.EVENT_READ, data=None)
 
-def accept_wrapper(sock):
-        conn, addr = sock.accept()  # Should be ready to read
+def accept_wrapper(plug):
+        conn, addr = plug.accept()  # Should be ready to read
         print(f"Accepted connection from {addr}")
         conn.setblocking(False)
         GUSmessage = Message(chooser, conn, addr)
