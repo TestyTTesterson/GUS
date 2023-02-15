@@ -37,6 +37,18 @@ class Message:
         else:
             raise ValueError(f"Invalid events mask mode {mode!r}.")
         self.selector.modify(self.sock, events, data=self)
+    def _read(self):
+        try:
+            # Should be ready to read
+            data = self.sock.recv(4096)
+        except BlockingIOError:
+            # Resource temporarily unavailable (errno EWOULDBLOCK)
+            pass
+        else:
+            if data:
+                self._recv_buffer += data
+            else:
+                raise RuntimeError("Peer closed.")
     def _write(self):
         if self._send_buffer:
             print(f"Sending {self._send_buffer!r} to {self.addr}")
