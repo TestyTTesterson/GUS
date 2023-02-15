@@ -26,6 +26,7 @@ print(f"Listening on {(HOST, PORT)}")
 plug.setblocking(False)
 
 chooser.register(plug, selectors.EVENT_READ, data=None)
+
 message = Message
 
 def brain(GUS):
