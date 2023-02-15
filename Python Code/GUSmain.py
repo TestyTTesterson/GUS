@@ -3,6 +3,8 @@ from greeting import greeting
 #import gpiozero
 import sentience as senses
 import locomotion as moveIt
+import communications
+
 
 class GUSrobot:
     def __init__(self, name, location, avoision):
@@ -32,6 +34,7 @@ GUS=GUSrobot
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
     while(True):
-        print(greeting())
+        
+        #print(greeting())
         brain(GUS)
             
