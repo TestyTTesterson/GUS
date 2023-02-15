@@ -7,12 +7,10 @@ def GUSPrompt(GUS):
 	# TODO The prompt should be here instead
 
     
-    print('***BEFORE INPUT***')
+    print('GUSPrompt')
     
 
     stupidTempVar=str(GUS.locate(GUS))
-    print(stupidTempVar + "cm>'Position in Command Structure'>")
-    query = input()
+    query=(stupidTempVar + "cm>'Position in Command Structure'>")
+    #query = input()
     return (query)
-
-    print('***AFTER***')

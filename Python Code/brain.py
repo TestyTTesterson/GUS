@@ -13,8 +13,8 @@ message = communications.Message
 def brain(GUS):
     
 
-    query = communications.message.read()
-    communications.message.write(GUSPrompt(GUS))
+    query = message.read()
+    message.write(GUSPrompt(GUS))
 	
 	# TODO START OF LOCOMOTION INTERACTION
     if "move" in query:
