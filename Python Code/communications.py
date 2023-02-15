@@ -53,22 +53,27 @@ def listenforcommands():
     finally:
         chooser.close()
 
+def sendresponse(GUSprompt):
+    try:
+        while True:
 
+            events = chooser.select(timeout=None)
 
+            for key, mask in events:
+                if key.data is None:
+                    accept_wrapper(key.fileobj)
+                else:
+                    message = GUSprompt()
+                    try:
+                        message.process_events(mask)
+                    except Exception:
+                        print(
+                            f"Main: Error: Exception for {message.addr}:\n"
+                            f"{traceback.format_exc()}"
+                        )
+                        message.close()
+    except KeyboardInterrupt:
+        print("Caught keyboard interrupt, exiting")
+    finally:
+        chooser.close()
 
-
-#  def listenforcommands():
-#    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ears:
-#        ears.bind((HOST, PORT))
-#        print('Listening...')
-#        ears.listen()
-#        conn, addr = ears.accept()
-#        with conn:
-#            print(f"Connected by {addr}")
-#            while True:
-#                data = str(conn.recv(1024))
-                
-#                if not data:
-#                    break
-#                return(data)
-#                # conn.sendall(data)

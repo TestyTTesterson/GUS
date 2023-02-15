@@ -8,11 +8,13 @@ from greeting import greeting
 #  Text to Speech
 #  import pyttsx3
 import communications
+message = communications.Message
 
 def brain(GUS):
     
-    query = communications.listenforcommands()
-    #GUSPrompt(GUS)
+
+    query = communications.message.read()
+    communications.message.write(GUSPrompt(GUS))
 	
 	# TODO START OF LOCOMOTION INTERACTION
     if "move" in query:
