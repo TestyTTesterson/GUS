@@ -25,8 +25,8 @@ def accept_wrapper(sock):
         conn, addr = sock.accept()  # Should be ready to read
         print(f"Accepted connection from {addr}")
         conn.setblocking(False)
-        message = Message(chooser, conn, addr)
-        chooser.register(conn, selectors.EVENT_READ, data=message)
+        GUSmessage = Message(chooser, conn, addr)
+        chooser.register(conn, selectors.EVENT_READ, data=GUSmessage)
 
 ######
 def listenforcommands():
