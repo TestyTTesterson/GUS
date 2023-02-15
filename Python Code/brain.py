@@ -1,19 +1,62 @@
-
-#  ! Importing sytem stuff
-import datetime 
-from prompt import GUSPrompt
-from greeting import greeting
 #import GUScontroller as GUSctrl
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 #  Text to Speech
 #  import pyttsx3
-import communications
-message = communications.Message
+#  ! Importing sytem stuff
+import datetime 
+from prompt import GUSPrompt
+from greeting import greeting
+#  import communications
+import sys
+import socket
+import selectors
+import types
+import traceback
+from commslibs import Message
+
+HOST = ""  # Standard loopback interface address (localhost)
+PORT = 23232  # Port to listen on (non-privileged ports are > 1023)
+chooser = selectors.DefaultSelector()
+
+# host, port = sys.argv[1], int(sys.argv[2])
+plug = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+plug.bind((HOST, PORT))
+plug.listen()
+print(f"Listening on {(HOST, PORT)}")
+plug.setblocking(False)
+
+chooser.register(plug, selectors.EVENT_READ, data=None)
+message = Message
 
 def brain(GUS):
     
+    # query = message.read(message)
 
-    query = message.read(message)
+    try:
+        while True:
+
+            events = chooser.select(timeout=None)
+
+            for key, mask in events:
+                if key.data is None:
+                    accept_wrapper(key.fileobj)
+                else:
+                    message = key.data
+                    try:
+                        message.process_events(mask)
+                    except Exception:
+                        print(
+                            f"Main: Error: Exception for {message.addr}:\n"
+                            f"{traceback.format_exc()}"
+                        )
+                        message.close()
+    except KeyboardInterrupt:
+        print("Caught keyboard interrupt, exiting")
+    finally:
+        chooser.close()
+    
+    query = str(message)
+
     #message.write(GUSPrompt(GUS))
 	
 	# TODO START OF LOCOMOTION INTERACTION
@@ -72,7 +115,9 @@ def brain(GUS):
         print("No hablo whatever that was.")
 	
 
-#  MOTD   
-#  Standard Greeting  moved to greeting.py
-#  MAIN
-# main method moved to GUS.py
+def accept_wrapper(plug):
+        conn, addr = plug.accept()  # Should be ready to read
+        print(f"Accepted connection from {addr}")
+        conn.setblocking(False)
+        GUSmessage = Message(chooser, conn, addr)
+        chooser.register(conn, selectors.EVENT_READ, data=GUSmessage)
