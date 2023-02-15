@@ -110,9 +110,9 @@ class Message:
         return response
     def process_events(self, mask):
         if mask & selectors.EVENT_READ:
-            self.read()
+            self.read(self)
         if mask & selectors.EVENT_WRITE:
-            self.write()
+            self.write(self)
     def read(self):
         self._read(self)
 
