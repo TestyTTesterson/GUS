@@ -41,7 +41,7 @@ def listenforcommands():
                 else:
                     message = key.data
                     try:
-                        Message.process_events(mask)
+                        message.process_events(mask)
                     except Exception:
                         print(
                             f"Main: Error: Exception for {message.addr}:\n"
