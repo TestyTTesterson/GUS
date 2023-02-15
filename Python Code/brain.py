@@ -13,7 +13,7 @@ message = communications.Message
 def brain(GUS):
     
 
-    query = message.read()
+    query = message.read(communications.Message)
     message.write(GUSPrompt(GUS))
 	
 	# TODO START OF LOCOMOTION INTERACTION
