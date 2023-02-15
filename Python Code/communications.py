@@ -29,29 +29,29 @@ def accept_wrapper(sock):
         chooser.register(conn, selectors.EVENT_READ, data=message)
 
 ######
+def listenforcommands():
+    try:
+        while True:
 
-try:
-    while True:
+            events = chooser.select(timeout=None)
 
-        events = chooser.select(timeout=None)
-
-        for key, mask in events:
-            if key.data is None:
-                accept_wrapper(key.fileobj)
-            else:
-                message = key.data
-                try:
-                    Message.process_events(mask)
-                except Exception:
-                    print(
-                        f"Main: Error: Exception for {message.addr}:\n"
-                        f"{traceback.format_exc()}"
-                    )
-                    message.close()
-except KeyboardInterrupt:
-    print("Caught keyboard interrupt, exiting")
-finally:
-    chooser.close()
+            for key, mask in events:
+                if key.data is None:
+                    accept_wrapper(key.fileobj)
+                else:
+                    message = key.data
+                    try:
+                        Message.process_events(mask)
+                    except Exception:
+                        print(
+                            f"Main: Error: Exception for {message.addr}:\n"
+                            f"{traceback.format_exc()}"
+                        )
+                        message.close()
+    except KeyboardInterrupt:
+        print("Caught keyboard interrupt, exiting")
+    finally:
+        chooser.close()
 
 
 

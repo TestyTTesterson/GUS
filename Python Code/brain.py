@@ -7,11 +7,11 @@ from greeting import greeting
 #PS4Ctrlr = GUSctrl.MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 #  Text to Speech
 #  import pyttsx3
-from communications import listenforcommands
+import communications
 
 def brain(GUS):
-    
-    query = listenforcommands()
+    communications.accept_wrapper()
+    query = communications.listenforcommands()
     #GUSPrompt(GUS)
 	
 	# TODO START OF LOCOMOTION INTERACTION
