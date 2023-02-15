@@ -13,13 +13,13 @@ PORT = 23232  # Port to listen on (non-privileged ports are > 1023)
 chooser = selectors.DefaultSelector()
 
 # host, port = sys.argv[1], int(sys.argv[2])
-lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-lsock.bind((HOST, PORT))
-lsock.listen()
+plug = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+plug.bind((HOST, PORT))
+plug.listen()
 print(f"Listening on {(HOST, PORT)}")
-lsock.setblocking(False)
+plug.setblocking(False)
 
-chooser.register(lsock, selectors.EVENT_READ, data=None)
+chooser.register(plug, selectors.EVENT_READ, data=None)
 
 def accept_wrapper(sock):
         conn, addr = sock.accept()  # Should be ready to read

@@ -10,7 +10,7 @@ from greeting import greeting
 import communications
 
 def brain(GUS):
-    communications.accept_wrapper()
+    
     query = communications.listenforcommands()
     #GUSPrompt(GUS)
 	
