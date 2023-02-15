@@ -114,7 +114,7 @@ class Message:
         if mask & selectors.EVENT_WRITE:
             self.write()
     def read(self):
-        self._read()
+        self._read(self)
 
         if self._jsonheader_len is None:
             self.process_protoheader()
