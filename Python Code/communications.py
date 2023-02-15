@@ -13,7 +13,7 @@ def listenforcommands():
         with conn:
             print(f"Connected by {addr}")
             while True:
-                data = conn.recv(1024)
+                data = str(conn.recv(1024))
                 
                 if not data:
                     break
