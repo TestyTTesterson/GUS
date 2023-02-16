@@ -2,7 +2,7 @@
 #  from playsound import playsound
 #import gps3
 from sentience import getPositionData
-import mpyg321
+from mpyg321 import mpyg321
 
 # from GUS import GUS
 def GUSPrompt(GUS):
@@ -13,9 +13,9 @@ def GUSPrompt(GUS):
     
     # print('GUSPrompt')
     
-    mpyg321('Resources/sonar-a-dry-98689.mp3')
+    mpyg321('/Resources/sonar-a-dry-98689.mp3')
     stupidTempVar=str(GUS.locate(GUS))
-    stupidTempvar2 = getPositionData(gps3)
+    stupidTempvar2 = getPositionData()
     print(stupidTempvar2 + "\n")
     query = input(stupidTempVar + "cm>'Position in Command Structure'>")
     #query = input()
