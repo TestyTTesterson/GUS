@@ -1,5 +1,5 @@
 #import communications
-import playsound
+from playsound import playsound
 
 # from GUS import GUS
 def GUSPrompt(GUS):
