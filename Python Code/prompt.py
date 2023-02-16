@@ -16,7 +16,7 @@ def GUSPrompt(GUS):
     mpyg321('/Resources/sonar-a-dry-98689.mp3')
     stupidTempVar=str(GUS.locate(GUS))
     stupidTempvar2 = getPositionData(gps3)
-    print(stupidTempvar2 "/n")
+    print(stupidTempvar2 + "\n")
     query = input(stupidTempVar + "cm>'Position in Command Structure'>")
     #query = input()
     return (query)
