@@ -1,5 +1,5 @@
 # ! Begin proximity sensor
-
+import gps3
 import time
 import gpiozero
 TRIG = 17
@@ -31,9 +31,9 @@ def Ping():
 
 # TODO End of proximity sensor
 # ! GPS
-def getPositionData(gps):
-	nx = gpsd.next()
-	if nx['class'] == 'TPV':
-    	    latitude = getattr(nx, 'lat', "Unknown")
-                longitude = getattr(nx, 'lon', "Unknown")
-    	    print "Your position: lon = " + str(longitude) + ", lat = " + str(latitude)
+def getPositionData(gps3):
+    nx = gps3.next()
+    if nx['class'] == 'TPV':
+        latitude = getattr(nx, 'lat', "Unknown")
+        longitude = getattr(nx, 'lon', "Unknown")
+        print ("Your position: lon = ") + str(longitude) + ", lat = " + str(latitude)
