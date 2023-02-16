@@ -13,7 +13,8 @@ def GUSPrompt(GUS):
     
     # print('GUSPrompt')
     
-    mpyg321.MPyg123Player('sonar.mp3')
+    tongue = mpyg321.MPyg123Player
+    tongue.play_song('sonar.mp3')
     stupidTempVar=str(GUS.locate(GUS))
     stupidTempvar2 = getPositionData()
     print(stupidTempvar2 + "\n")
