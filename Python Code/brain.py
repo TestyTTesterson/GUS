@@ -15,7 +15,7 @@ PORT = 23232  # Port to listen on (non-privileged ports are > 1023)
 def brain(GUS):
     
     # query = message.read(message)
-    query = GUSPrompt()
+    query = GUSPrompt(GUS)
 
     #message.write(GUSPrompt(GUS))
 	
