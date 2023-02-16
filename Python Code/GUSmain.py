@@ -3,7 +3,7 @@ from greeting import greeting
 #import gpiozero
 import sentience as senses
 import locomotion as moveIt
-import communications
+# import communications
 
 
 class GUSrobot:

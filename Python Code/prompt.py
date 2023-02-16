@@ -1,4 +1,4 @@
-import communications
+#import communications
 
 # from GUS import GUS
 def GUSPrompt(GUS):
@@ -7,10 +7,10 @@ def GUSPrompt(GUS):
 	# TODO The prompt should be here instead
 
     
-    print('GUSPrompt')
+    # print('GUSPrompt')
     
 
     stupidTempVar=str(GUS.locate(GUS))
-    query=(stupidTempVar + "cm>'Position in Command Structure'>")
+    query = input(stupidTempVar + "cm>'Position in Command Structure'>")
     #query = input()
     return (query)
