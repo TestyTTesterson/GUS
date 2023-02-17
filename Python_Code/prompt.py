@@ -23,7 +23,7 @@ def GUSPrompt(GUS):
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
 
 
-    playsound("/Python_Code/Resources/sonar.mp3")
+    playsound("Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
 
