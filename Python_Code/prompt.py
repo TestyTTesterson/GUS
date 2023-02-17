@@ -2,12 +2,12 @@
 #  from playsound import playsound
 
 #from sentience import getPositionData
-#from mpyg321 import mpyg321
-#tongue = mpyg321.MPyg321Player()
+from mpyg321 import mpyg321
+tongue = mpyg321.MPyg321Player()
 import os
 
 
-from playsound import playsound
+#from playsound import playsound
 
 
 import serial
@@ -25,7 +25,7 @@ def GUSPrompt(GUS):
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
 
     print (os.getcwd())
-    playsound("GUS/Python_Code/Resources/sonar.mp3")
+    tongue.play_song("GUS/Python_Code/Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
 
