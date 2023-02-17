@@ -4,8 +4,8 @@ from greeting import greeting
 import sentience as senses
 import locomotion as moveIt
 # import communications
-from pigps import gps
-GUSgps = gps()
+import pigps
+GUSgps = pigps.GPS()
 
 
 
