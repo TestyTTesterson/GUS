@@ -1,6 +1,6 @@
 #import communications
 #  from playsound import playsound
-import gps3
+
 from sentience import getPositionData
 from mpyg321 import mpyg321
 

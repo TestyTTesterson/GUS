@@ -1,9 +1,7 @@
 # ! Begin proximity sensor
 import time
 import gpiozero
-from gps3 import gps3
-locale = gps3.GPSDSocket() 
-the_fix = gps3.DataStream()
+
 
 TRIG = 17
 ECHO = 27
@@ -35,8 +33,8 @@ def Ping():
 # TODO End of proximity sensor
 # ! GPS
 
-def getPositionData(gps3):
-    nx = gps3.next()
+def getPositionData(GUSgps):
+    nx = GUSgps.next()
     if nx['class'] == 'TPV':
         latitude = getattr(nx, 'lat', "Unknown")
         longitude = getattr(nx, 'lon', "Unknown")
