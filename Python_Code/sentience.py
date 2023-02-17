@@ -1,5 +1,5 @@
 # ! Begin proximity sensor
-#import gps3
+import gps3
 import time
 import gpiozero
 TRIG = 17
