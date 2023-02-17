@@ -41,7 +41,7 @@ if __name__ == '__main__':
         #brain(GUS)
         for new_data in the_connection:
             if new_data:
-                the_fix.(new_data)
+                the_fix(new_data)
             if not isinstance(the_fix.TPV['lat'], str): # lat as determinate of when data is 'valid'
                 speed = the_fix.TPV['speed']
                 latitude = the_fix.TPV['lat']
