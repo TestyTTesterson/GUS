@@ -4,9 +4,11 @@ from greeting import greeting
 import sentience as senses
 import locomotion as moveIt
 # import communications
-from gps import gps as GUSgps
-locale = GUSgps.connect(self=GUSgps)
-the_fix = GUSgps.data()
+from gps import gps
+GUSgpshost = gps.host
+GUSgpsport = gps.port
+locale = gps.connect()
+the_fix = gps.data()
 
 class GUSrobot:
     def __init__(self, name, location, avoision):
