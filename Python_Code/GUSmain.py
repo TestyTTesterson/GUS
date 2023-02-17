@@ -55,5 +55,6 @@ if __name__ == '__main__':
     GPSlist = GPSstring.split(',')
     for cells in GPSlist:
         print(cells)
-
+    print(GPSlist[4] + GPSlist[6])
+    
 
