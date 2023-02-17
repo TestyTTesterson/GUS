@@ -6,7 +6,7 @@ from mpyg321 import mpyg321
 tongue = mpyg321.MPyg321Player()
 import os
 os.system("bluetoothctl connect FC:58:FA:9C:9C:08")
-
+mpyg321.MPyg321Player.
 #from playsound import playsound
 
 
@@ -18,14 +18,15 @@ serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
 def GUSPrompt(GUS):
 
 	# TODO The prompt should be here instead
-
     GPSstring = str(serialPort.readline())
     GPSlist = GPSstring.split(',')
     if len(GPSlist) >= 5:
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
 
     print (os.getcwd())
-    tongue.play_song("GUS/Python_Code/Resources/sonar.mp3")
+    #tongue.play
+    os.system("mpg321 -B GUS/Python_Code/Resources/sonar.mp3")
+    
 
     stupidTempVar=str(GUS.locate(GUS))
 

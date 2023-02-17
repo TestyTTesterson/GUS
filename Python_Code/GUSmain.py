@@ -30,14 +30,9 @@ class GUSrobot:
 
 GUS=GUSrobot
 
-def parseGPS(msg):
-
-    #msg = pynmea2.parse(str)
-    print ("Timestamp: %s -- Lat: %s %s -- Lon: %s %s -- Altitude: %s %s" % (msg.timestamp,msg.lat,msg.lat_dir,msg.lon,msg.lon_dir,msg.altitude,msg.altitude_units))
-
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
-    #while(True):
+    while(True):
         
         print(greeting())
         brain(GUS)
