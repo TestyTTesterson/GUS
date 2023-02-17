@@ -24,7 +24,7 @@ def GUSPrompt(GUS):
     if len(GPSlist) >= 5:
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
 
-
+    print (os.getcwd())
     playsound("Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
