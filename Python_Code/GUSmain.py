@@ -5,7 +5,7 @@ import sentience as senses
 import locomotion as moveIt
 # import communications
 from gps import gps as GUSgps
-locale = GUSgps.connect()
+locale = GUSgps.connect(self=GUSgps)
 the_fix = GUSgps.data()
 
 class GUSrobot:
