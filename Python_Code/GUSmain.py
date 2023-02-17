@@ -46,4 +46,5 @@ if __name__ == '__main__':
         #print(greeting())
         #brain(GUS)
         str = serialPort.readline()
-        print(str)
+        message = pynmea2.parse(str)
+        print(message)
