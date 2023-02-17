@@ -11,10 +11,8 @@ def GUSPrompt(GUS):
 	# TODO The prompt should be here instead
 
     
-    # print('GUSPrompt')
-    
-    tongue = mpyg321.MPyg123Player
-    tongue.play("/Python Code/Resources/sonar.mp3")
+    tongue = mpyg321.MPyg321Player()
+    tongue.play_song("/Python_Code/Resources/sonar.mp3")
     stupidTempVar=str(GUS.locate(GUS))
     stupidTempvar2 = getPositionData()
     print(stupidTempvar2 + "\n")
