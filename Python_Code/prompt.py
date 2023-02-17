@@ -25,7 +25,7 @@ def GUSPrompt(GUS):
 
     print (os.getcwd())
     #tongue.play
-    os.system("mpg321 -B GUS/Python_Code/Resources/sonar.mp3")
+    os.system("mpg321 -B Resources/sonar.mp3")
     
 
     stupidTempVar=str(GUS.locate(GUS))
