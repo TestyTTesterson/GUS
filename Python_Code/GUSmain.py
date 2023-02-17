@@ -4,11 +4,11 @@ from greeting import greeting
 import sentience as senses
 import locomotion as moveIt
 # import communications
-from gps import gps
-GUSgpshost = gps.host
-GUSgpsport = gps.port
-locale = gps.connect()
-the_fix = gps.data()
+from pigps import gps
+GUSgps = gps()
+
+
+
 
 class GUSrobot:
     def __init__(self, name, location, avoision):
@@ -41,12 +41,4 @@ if __name__ == '__main__':
         
         #print(greeting())
         #brain(GUS)
-        for new_data in locale:
-            if new_data:
-                the_fix(new_data)
-            if not isinstance(the_fix.TPV['lat'], str): # lat as determinate of when data is 'valid'
-                speed = the_fix.TPV['speed']
-                latitude = the_fix.TPV['lat']
-                longitude = the_fix.TPV['lon']
-                altitude  = the_fix.TPV['alt']
-        print(speed + latitude + longitude + altitude)
+        print(GUSgps.lon)
