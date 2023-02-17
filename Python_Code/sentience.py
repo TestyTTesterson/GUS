@@ -2,6 +2,10 @@
 import gps3
 import time
 import gpiozero
+from gps3 import gps3
+locale = gps3.GPSDSocket() 
+the_fix = gps3.Fix()
+
 TRIG = 17
 ECHO = 27
 trigger = gpiozero.OutputDevice(TRIG)
@@ -32,8 +36,16 @@ def Ping():
 # TODO End of proximity sensor
 # ! GPS
 def getPositionData(gps3):
-    nx = gps3.next()
-    if nx['class'] == 'TPV':
-        latitude = getattr(nx, 'lat', "Unknown")
-        longitude = getattr(nx, 'lon', "Unknown")
-        print ("Your position: lon = ") + str(longitude) + ", lat = " + str(latitude)
+    try:
+        for new_data in locale:
+            if new_data:
+                the_fix.refresh(new_data)
+            if not isinstance(the_fix.TPV['lat'], str): # lat as determinate of when data is 'valid'
+                speed = the_fix.TPV['speed']
+                latitude = the_fix.TPV['lat']
+                longitude = the_fix.TPV['lon']
+                altitude  = the_fix.TPV['alt']  
+    except KeyboardInterrupt:
+        print("Caught keyboard interrupt, exiting")
+    finally:
+        locale.close()
