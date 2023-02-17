@@ -16,11 +16,11 @@ def GUSPrompt(GUS):
 
     GPSstring = str(serialPort.readline())
     GPSlist = GPSstring.split(',')
-    if len(GPSlist) > 6:
+    if len(GPSlist) >= 5:
         print(GPSlist[3] + " N " + GPSlist[5] + " W \n")
 
 
-    tongue.play_song("/Python_Code/Resources/sonar.mp3")
+    #tongue.play_song("/Python_Code/Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
 
