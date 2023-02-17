@@ -1,5 +1,4 @@
 # ! Begin proximity sensor
-import gps3
 import time
 import gpiozero
 from gps3 import gps3

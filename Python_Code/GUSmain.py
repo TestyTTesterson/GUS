@@ -4,7 +4,9 @@ from greeting import greeting
 import sentience as senses
 import locomotion as moveIt
 # import communications
-
+from gps3 import gps3
+the_connection = gps3.GPSDSocket() 
+the_fix = gps3.Fix()
 
 class GUSrobot:
     def __init__(self, name, location, avoision):
@@ -37,9 +39,12 @@ if __name__ == '__main__':
         
         #print(greeting())
         #brain(GUS)
-    nx = gps3.next()
-    if nx['class'] == 'TPV':
-        latitude = getattr(nx, 'lat', "Unknown")
-        longitude = getattr(nx, 'lon', "Unknown")
-        print ("Your position: lon = " + str(longitude) + ", lat = " + str(latitude))
-            
+        for new_data in the_connection:
+            if new_data:
+                the_fix.refresh(new_data)
+            if not isinstance(the_fix.TPV['lat'], str): # lat as determinate of when data is 'valid'
+                speed = the_fix.TPV['speed']
+                latitude = the_fix.TPV['lat']
+                longitude = the_fix.TPV['lon']
+                altitude  = the_fix.TPV['alt']
+        print(speed + latitude + longitude + altitude)
