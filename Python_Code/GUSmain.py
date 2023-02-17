@@ -52,6 +52,6 @@ if __name__ == '__main__':
         #brain(GUS)
         GPSstring = str(serialPort.readline())
         #message = pynmea2.parse(GPSstring)
-        message = parse(GPSstring)
+        message = parse(GPSstring.split(','))
         parseGPS(message)
 
