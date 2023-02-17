@@ -6,7 +6,7 @@ import locomotion as moveIt
 # import communications
 from gps3 import gps3
 the_connection = gps3.GPSDSocket() 
-the_fix = gps3.Fix()
+the_fix = gps3.DataStream()
 
 class GUSrobot:
     def __init__(self, name, location, avoision):
