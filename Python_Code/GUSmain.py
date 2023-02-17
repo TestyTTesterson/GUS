@@ -6,7 +6,13 @@ import locomotion as moveIt
 # import communications
 import pigps
 GUSgps = pigps.GPS()
+import serial
+import pynmea2
+serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
 
+while True:
+    str = serialPort.readline()
+    print(str)
 
 
 
