@@ -7,7 +7,7 @@ import locomotion as moveIt
 
 
 import serial
-import pynmea2
+from pynmea2 import parse
 serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
 
 
@@ -52,5 +52,6 @@ if __name__ == '__main__':
         #brain(GUS)
         GPSstring = serialPort.readline()
         #message = pynmea2.parse(GPSstring)
-        print(GPSstring)
+        message = parse(GPSstring)
+        parseGPS(message)
 
