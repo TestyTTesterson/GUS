@@ -46,13 +46,14 @@ def parseGPS(msg):
 
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
-    while(True):
+    #while(True):
         
         #print(greeting())
         #brain(GUS)
-        GPSstring = str(serialPort.readline())
+    GPSstring = str(serialPort.readline())
         #message = pynmea2.parse(GPSstring)
-        GPSlist = GPSstring.split(',')
-        print(GPSlist[4])
-        
+    GPSlist = GPSstring.split(',')
+    for cells in GPSlist:
+        print(cells)
+
 
