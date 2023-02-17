@@ -14,7 +14,8 @@ def GUSPrompt(GUS):
 
     GPSstring = str(serialPort.readline())
     GPSlist = GPSstring.split(',')
-    print(GPSlist[3] + " N " + GPSlist[5] + " W \n")
+    if len(GPSlist) > 6:
+        print(GPSlist[3] + " N " + GPSlist[5] + " W \n")
 
     tongue = mpyg321.MPyg321Player()
     tongue.play_song("/Python_Code/Resources/sonar.mp3")
