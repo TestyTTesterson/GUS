@@ -54,5 +54,5 @@ if __name__ == '__main__':
         #message = pynmea2.parse(GPSstring)
         GPSlist = GPSstring.split(',')
         for cells in GPSlist:
-            print(GPSlist[cells])
+            print(cells)
 
