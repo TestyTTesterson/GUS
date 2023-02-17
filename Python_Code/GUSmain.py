@@ -5,15 +5,6 @@ import sentience as senses
 import locomotion as moveIt
 # import communications
 
-
-import serial
-from pynmea2 import parse
-serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
-
-
-
-
-
 class GUSrobot:
     def __init__(self, name, location, avoision):
         #  args    TRIG, ECHO, trigger, echo
@@ -48,14 +39,9 @@ def parseGPS(msg):
 if __name__ == '__main__':
     #while(True):
         
-        #print(greeting())
-        #brain(GUS)
-    GPSstring = str(serialPort.readline())
-        #message = pynmea2.parse(GPSstring)
-    GPSlist = GPSstring.split(',')
-    for cells in GPSlist:
-        print(cells)
-    print(GPSlist[3] + " N " + GPSlist[5] + " W")
+        print(greeting())
+        brain(GUS)
     
+
 
 

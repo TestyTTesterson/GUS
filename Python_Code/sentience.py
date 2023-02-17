@@ -3,6 +3,8 @@ import time
 import gpiozero
 
 
+
+
 TRIG = 17
 ECHO = 27
 trigger = gpiozero.OutputDevice(TRIG)
@@ -32,10 +34,3 @@ def Ping():
 
 # TODO End of proximity sensor
 # ! GPS
-
-def getPositionData(GUSgps):
-    nx = GUSgps.next()
-    if nx['class'] == 'TPV':
-        latitude = getattr(nx, 'lat', "Unknown")
-        longitude = getattr(nx, 'lon', "Unknown")
-        print ("Your position: lon = " + str(longitude) + ", lat = " + str(latitude))
