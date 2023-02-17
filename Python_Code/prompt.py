@@ -6,7 +6,7 @@ from mpyg321 import mpyg321
 tongue = mpyg321.MPyg321Player()
 import os
 os.system("bluetoothctl connect FC:58:FA:9C:9C:08")
-mpyg321.MPyg321Player.
+
 #from playsound import playsound
 
 
