@@ -50,7 +50,7 @@ if __name__ == '__main__':
         
         #print(greeting())
         #brain(GUS)
-        GPSstring = serialPort.readline()
+        GPSstring = str(serialPort.readline())
         #message = pynmea2.parse(GPSstring)
         message = parse(GPSstring)
         parseGPS(message)
