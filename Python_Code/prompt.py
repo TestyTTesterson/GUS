@@ -1,7 +1,7 @@
 #import communications
 #  from playsound import playsound
 
-from sentience import getPositionData
+#from sentience import getPositionData
 from mpyg321 import mpyg321
 import serial
 serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
@@ -22,6 +22,6 @@ def GUSPrompt(GUS):
     tongue.play_song("/Python_Code/Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
-    
+
     query = input(stupidTempVar + "cm>'Position in Command Structure'>")
     return (query)
