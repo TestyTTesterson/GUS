@@ -24,9 +24,8 @@ def GUSPrompt(GUS):
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
 
     print (os.getcwd())
-    #tongue.play
-    os.system("mpg321 -B Resources/sonar.mp3")
-    
+    # this is where I run my bash script from because I remove the old repo first
+    os.system("mpg321 -B -q -g 12 GUS/Python_Code/Resources/sonar.mp3")
 
     stupidTempVar=str(GUS.locate(GUS))
 
