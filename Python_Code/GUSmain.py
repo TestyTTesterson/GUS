@@ -41,7 +41,7 @@ GUS=GUSrobot
 
 def parseGPS(str):
 
-    if str.find('GGA') > 0:
+    if 'GGA' in str:
 
         msg = pynmea2.parse(str)
         print ("Timestamp: %s -- Lat: %s %s -- Lon: %s %s -- Altitude: %s %s" % (msg.timestamp,msg.lat,msg.lat_dir,msg.lon,msg.lon_dir,msg.altitude,msg.altitude_units))
