@@ -5,8 +5,8 @@
 #from mpyg321 import mpyg321
 #tongue = mpyg321.MPyg321Player()
 
-import playsound
-#tongue = playsound()
+from playsound import playsound
+
 
 import serial
 serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
