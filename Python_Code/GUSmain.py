@@ -1,8 +1,8 @@
 from brain import brain
 from greeting import greeting
 #import gpiozero
-import sentience as senses
-import locomotion as moveIt
+#import sentience as senses
+#import locomotion as moveIt
 # import communications
 
 class GUSrobot:
@@ -21,11 +21,11 @@ class GUSrobot:
     def __str__(self):
         return f"{self.name}"
     def locate(self):
-        yetanotherstupidTempVar=senses.Ping()
+        yetanotherstupidTempVar="300" #senses.Ping()
         #self.location[3] = float(yetanotherstupidTempVar)
         return(yetanotherstupidTempVar)
     def move(self, command):
-        moveIt.movement(self, command)
+        return("OFF") #moveIt.movement(self, command)
     stepdistance = 0.5
 
 GUS=GUSrobot

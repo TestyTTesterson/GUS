@@ -6,6 +6,9 @@
 import datetime 
 from prompt import GUSPrompt
 from greeting import greeting
+from voice import soundfx, speak
+
+
 #  import communications
 
 
@@ -33,6 +36,7 @@ def brain(GUS):
             responseTemp=str(res[1])
             GUS.move(GUS, responseTemp)
         else:
+            speak('Must provide direction as 2nd argument ("move [arg]") not: ' + query)
             print('Must provide direction as 2nd argument ("move [arg]") not: ' + query)
             print('''
             Halt!                 (n)o go

@@ -7,7 +7,7 @@ import gpiozero
 
 TRIG = 17
 ECHO = 27
-trigger = gpiozero.OutputDevice(TRIG)
+#trigger = gpiozero.OutputDevice(TRIG)
 echo = gpiozero.DigitalInputDevice(ECHO)
 
 def Ping():
