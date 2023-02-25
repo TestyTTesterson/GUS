@@ -2,6 +2,7 @@
 import gpiozero
 from time import sleep
 from collisiondetection import checkpath
+from collisionavoision import collisionavoision
 #  this is what we have to multiply the step distance by in order to get
 #  the length of time to run the motor.
 stepDistanceTimeconversion = 1
@@ -9,7 +10,7 @@ rotationMultiplier = 1
 wheels=gpiozero.Robot(left=(5,6),right=(16,19))
 def movement(GUS, command):
     
-#    if checkpath(GUS) == False:
+    if checkpath(GUS) == False:
 
         if 'n' in command:
             print("(n)o go")
@@ -67,6 +68,10 @@ def movement(GUS, command):
         else:
             print("<<<  wrong data  >>>")
             print("please enter the defined data to continue.....")
- #   else:
- #       print("Evasion required!")
+    else:
+        return("Avoision required!")
+        collisionavoision(GUS)
+        
+
+
 
