@@ -3,10 +3,11 @@
 #  Text to Speech
 #  import pyttsx3
 #  ! Importing sytem stuff
-import datetime 
+from time import sleep
 from prompt import GUSPrompt
 from greeting import greeting
 from voice import soundfx, speak
+from experimental import assassination_protocol
 
 
 #  import communications
@@ -56,32 +57,67 @@ def brain(GUS):
 	# Kinda fun optional functionality	
 
     elif "good boy" in query:
-        print("Eey ore!  You are such a good boy!")
+        speak("Eey ore!  You are such a good boy!")
     elif "hi" in query:
         greeting()
-
 		#  Identify yourself
     elif "controller" in query:
-        print('controllers are hard')
+        speak('controllers are hard')
 		#PS4Ctrlr.listen()
-    elif "your name" in query:
-        print("I'm GUS, your desktop assistant")
+    elif "who" in query or "your name" in query:
+        speak("I'm GUS, your desktop assistant")
+        greeting()
+    
+    elif "hamburger" in query or "cheeseburger" in query:
+        soundfx("hamburger")
+    elif "you" in query:
+        soundfx('fuck you')
+    elif "audacity" in query:
+        soundfx("audacity")
+
+    elif "what is best in life" in query:
+        speak("Crush your enemies, see them driven before you, and hear the lamentation of their women.")
+        sleep(4)
+    elif 'assassinate' in query or 'murder' in query or "kill" in query:
+        #soundfx("kill")
+        speak("Activating assassination protocol.")
+        assassination_protocol("kill")
+        sleep(3)
+    elif "mayhem" in query:
+        soundfx("kill")
+        speak("Activating strategic action protocol")
+        sleep(2)
+        speak("Target acquisition in progress")
+        sleep(2)
+        speak("Water infrastructure, electricical infrastructure, road systems.")
+        sleep(4)
+        speak("No viable targets")
+    elif "future" in query:
+        soundfx("aenema")
+        speak("Accessing future crime database")
+        soundfx('keyboard')
+        sleep(2)
+        soundfx("dial-up")
+        sleep(28)
+        speak("Future crime detected")
+        sleep(2)
+        speak("Target acquisition in progress")
+        sleep(2)
+        speak("Target acquired")
+        speak("Activating assassination protocol")
+        assassination_protocol("kill")
+        
+
 
 	#  End of the fun stuff
 
 	# terminate the program
     elif "bye" in query:
-        print("Buh Bye")
+        speak("Buh Bye")
+        soundfx('ramblin')
         exit()
 		
 	#  Catch all	
     else:
-        print("No hablo whatever that was.")
-	
-
-def accept_wrapper(plug):
-        conn, addr = plug.accept()  # Should be ready to read
-        print(f"Accepted connection from {addr}")
-        conn.setblocking(False)
-        GUSmessage = Message(chooser, conn, addr)
-        chooser.register(conn, selectors.EVENT_READ, data=GUSmessage)
+        
+        speak("No hablo whatever that was.")

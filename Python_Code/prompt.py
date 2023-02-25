@@ -11,13 +11,13 @@ from voice import soundfx
 def GUSPrompt(GUS):
 
 	# TODO The prompt should be here instead
-    GPSstring = "OFF OFF2 OFF3 OFF4 OFF5" #str(serialPort.readline())
+    GPSstring = "OFF,OFF2,OFF3,OFF4,OFF5,OFF6,OFF7" #str(serialPort.readline())
     GPSlist = GPSstring.split(',')
     if len(GPSlist) >= 5:
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
  
     stupidTempVar="OFF" #str(GUS.locate(GUS))
-
-    query = input(stupidTempVar + "cm>'Position in Command Structure'>")
     soundfx('ping')
+    query = input(stupidTempVar + "cm>'Position in Command Structure'>")
+    
     return (query)

@@ -1,5 +1,6 @@
 from brain import brain
 from greeting import greeting
+from voice import soundfx
 #import gpiozero
 #import sentience as senses
 #import locomotion as moveIt
@@ -32,9 +33,9 @@ GUS=GUSrobot
 
 #  I prefer the while loop to be out here
 if __name__ == '__main__':
+    #soundfx('theme')
+    print(greeting())
     while(True):
-        
-        print(greeting())
         brain(GUS)
     
 
