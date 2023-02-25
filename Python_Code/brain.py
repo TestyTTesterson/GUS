@@ -77,9 +77,9 @@ def brain(GUS):
 
     elif "what is best in life" in query:
         speak("Crush your enemies, see them driven before you, and hear the lamentation of their women.")
-        sleep(4)
+        sleep(3.5)
     elif 'assassinate' in query or 'murder' in query or "kill" in query:
-        #soundfx("kill")
+        soundfx("kill")
         speak("Activating assassination protocol.")
         assassination_protocol("kill")
         sleep(3)
@@ -98,16 +98,22 @@ def brain(GUS):
         soundfx('keyboard')
         sleep(2)
         soundfx("dial-up")
-        sleep(28)
+        sleep(29.5)
         speak("Future crime detected")
-        sleep(2)
+        sleep(2.5)
         speak("Target acquisition in progress")
         sleep(2)
         speak("Target acquired")
+        sleep(1)
         speak("Activating assassination protocol")
+        sleep(1)
         assassination_protocol("kill")
-        
 
+    elif "lost" in query:
+        soundfx("lost")    
+
+    elif 'quiet' in query:
+        soundfx('quiet')
 
 	#  End of the fun stuff
 

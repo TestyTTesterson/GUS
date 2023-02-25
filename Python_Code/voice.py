@@ -5,15 +5,17 @@ from time import sleep
 import pyttsx3
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
+import os
 
 def speak(phrase):
 
     # setter method .[0]=male voice and
     # [1]=female voice in set Property.
-    engine.setProperty('voice', 'zhy')
+    #engine.setProperty('voice', 'zhy')
+    engine.setProperty('voice', "english_wmids" + '-m7')
+    engine.setProperty('rate', 235)
      
     engine.say(phrase) 
-    # Blocks while processing all the currently
     engine.runAndWait()
 
 def soundfx(fx):
@@ -48,16 +50,21 @@ def soundfx(fx):
     elif "aenema" in fx:
         playsound('/home/testyt/Desktop/GUS/Python_Code/Resources/aenema.mp3', False)
     
-
+    elif "lost" in fx:
+        playsound('/home/testyt/Desktop/GUS/Python_Code/Resources/lost-boy.mp3', False)
+    elif "quiet" in fx:
+        print("Turn down for what?  Can't stop, won't stop.")
+        os.system('pulseaudio -k')
     else:
         playsound('/home/testyt/Desktop/GUS/Python_Code/Resources/voodoo-child.mp3', False)
 
 #speak("Yo mamma!")
-
-#for voice in voices:
-#    print(voice, voice.id)
-#    engine.setProperty('voice', voice.id)
-#    engine.say("Hi, I'm Gus!")
-#    sleep(2)
-#    engine.runAndWait()
-#    engine.stop()
+'''
+for voice in voices:
+    print(voice, voice.id)
+    engine.setProperty('voice', voice.id)
+    engine.say("Hi, I'm Gus!")
+    sleep(2)
+    engine.runAndWait()
+    engine.stop()
+'''
