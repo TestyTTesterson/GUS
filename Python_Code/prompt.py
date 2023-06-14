@@ -7,6 +7,7 @@ import serial
 # serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
 from voice import soundfx
 
+
 # from GUS import GUS
 def GUSPrompt(GUS):
 
@@ -17,7 +18,10 @@ def GUSPrompt(GUS):
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
  
     stupidTempVar="OFF" #str(GUS.locate(GUS))
-    soundfx('ping')
-    query = input(stupidTempVar + "cm>'Position in Command Structure'>")
+    #soundfx('ping')
     
-    return (query)
+    #query = input(stupidTempVar + "cm>'Position in Command Structure'>")
+    
+    
+
+# Define callback function to handle incoming messages

@@ -5,7 +5,7 @@ from voice import soundfx
 #import sentience as senses
 #import locomotion as moveIt
 # import communications
-
+query = ""
 class GUSrobot:
     def __init__(self, name, location, avoision):
         #  args    TRIG, ECHO, trigger, echo

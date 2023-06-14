@@ -8,8 +8,22 @@ from prompt import GUSPrompt
 from greeting import greeting
 from voice import soundfx, speak
 from experimental import assassination_protocol
+import paho.mqtt.client as mqtt
+# Create MQTT client instance
+ears = mqtt.Client()
+def on_message(client, userdata, message):
+    # Convert message payload to string and save it to a variable
+    print("checking...")
+    message_string = message.payload.decode("utf-8")
+    global query 
+    query = message_string
+    return(query)
 
-
+ears.on_message=on_message
+    # Connect to MQTT broker
+ears.connect("localhost", 1883)
+    # Subscribe to MQTT topic
+ears.subscribe("GUSCommands")
 #  import communications
 
 
@@ -17,10 +31,28 @@ HOST = ""  # Standard loopback interface address (localhost)
 PORT = 23232  # Port to listen on (non-privileged ports are > 1023)
 
 def brain(GUS):
-    
+    global query
     # query = message.read(message)
-    query = GUSPrompt(GUS)
-
+    # query = GUSPrompt(GUS)
+    
+    #TODO  Pull query from msqtt
+    
+    # Start MQTT client loop to receive incoming messages
+    print("polling...")
+    ears.loop_start()
+    #TODO END Pull
+        # Call the handle_message function and return the received message
+    ears.on_message
+    print("polled!")
+    global query
+    print (query)
+    if query is not None:
+        # Stop MQTT client loop
+        ears.loop_stop()
+        # Return the received message
+        return query
+        
+    print(query)
     #message.write(GUSPrompt(GUS))
 	
 	# TODO START OF LOCOMOTION INTERACTION
@@ -127,3 +159,4 @@ def brain(GUS):
     else:
         
         speak("No hablo whatever that was.")
+
