@@ -2,9 +2,6 @@
 import time
 import gpiozero
 
-
-
-
 TRIG = 17
 ECHO = 27
 #trigger = gpiozero.OutputDevice(TRIG)

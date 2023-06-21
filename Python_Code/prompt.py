@@ -6,7 +6,7 @@ import os
 import serial
 # serialPort = serial.Serial("/dev/serial0", 9600, timeout=0.5)
 from voice import soundfx
-
+import spankbank
 
 # from GUS import GUS
 def GUSPrompt(GUS):
@@ -16,7 +16,8 @@ def GUSPrompt(GUS):
     GPSlist = GPSstring.split(',')
     if len(GPSlist) >= 5:
         print(GPSlist[3] + " " + GPSlist[4] + " " + GPSlist[5] + " " + GPSlist[6] + "\n")
- 
+    #  spankbank.SpankBank()
+    
     stupidTempVar="OFF" #str(GUS.locate(GUS))
     #soundfx('ping')
     

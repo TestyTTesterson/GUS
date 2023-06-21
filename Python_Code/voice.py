@@ -6,6 +6,14 @@ import pyttsx3
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 import os
+from paho.mqtt import client as mqtt_client
+import spankbank
+
+broker = 'localhost'
+port = 1883
+topic = "GUSPrompt"
+client_id = ''
+client= spankbank.connect_mqtt()
 
 def speak(phrase):
 
@@ -17,6 +25,9 @@ def speak(phrase):
      
     engine.say(phrase) 
     engine.runAndWait()
+    print(phrase)
+    
+    client.publish("GUSPrompt", phrase)
 
 def soundfx(fx):
 
