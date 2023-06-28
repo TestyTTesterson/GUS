@@ -1,5 +1,7 @@
 import paho.mqtt.client as mqtt
 from tkinter import *
+from tkinter import ttk
+
 from PIL import Image, ImageTk
 from io import BytesIO
 
@@ -10,45 +12,47 @@ client = mqtt.Client()
 client.connect("localhost")
 
 # create the GUI
-root = Tk()
+GUSCon = Tk()
 
 # create the first listbox to display received messages
-GUSmessage_listbox = Listbox(root)
-GUSmessage_listbox.pack()
+GUSmessage_listbox = Listbox(GUSCon, width = 60, height = 10, )
+# Create a Scrollbar widget
+scrollbar = Scrollbar(GUSCon, orient='vertical', command=GUSmessage_listbox.yview)
+scrollbar.pack(side='left', fill='y')
 
-# create the input box and send button
-GUSinput_box = Entry(root)
-GUSinput_box.pack()
-GUSinput_box.focus_set()
-
+GUSmessage_listbox.config(yscrollcommand=scrollbar.set)
+GUSmessage_listbox.pack(side='bottom', fill='both', expand=True)
 #create image boximage_label = Label(root)
-GUSVisionImage_label = Label(root)
-GUSVisionImage_label.pack(side=RIGHT)
+GUSVisionImage_label = Label(GUSCon)
+GUSVisionImage_label.pack(side="top")
+# Create Combobox widget with custom values
+previous_entries = ["who"]
+GUSInput_box = ttk.Combobox(GUSCon, values=previous_entries)
+GUSInput_box.pack()
+GUSInput_box.focus_set()
 
 def send_message():
     # get the message from the input box
-    message = GUSinput_box.get()
-
+    message = GUSInput_box.get()
     # post the message to the MQTT server with the topic "GUSCommands"
     client.publish("GUSCommands", message)
-
     # add the message to the second listbox
-    GUSmessage_listbox.insert(END, message)
-
+    # Add current value to previous entries list
+    previous_entries.append(message)
+    # Update values of Combobox
+    GUSInput_box['values'] = previous_entries
     # clear the input box
-    GUSinput_box.delete(0, END)
+    GUSInput_box.delete(0, END)
 
-send_button = Button(root, text="Send", command=send_message)
-root.bind('<Return>', lambda event: send_button.invoke())
+send_button = Button(GUSCon, text="Send", command=send_message)
+GUSCon.bind('<Return>', lambda event: send_button.invoke())
 send_button.pack()
 
 def update_LIST_box(client, userdata, message):
     # get the message payload
     payload = message.payload.decode()
-
     # update the LISTBOX box with the received message
-    
-    GUSmessage_listbox.insert(0, payload)
+    GUSmessage_listbox.insert(END, payload)
 
 def update_IMAGEBOX(client, userdata, message):
     # load the image from the message payload
@@ -57,7 +61,7 @@ def update_IMAGEBOX(client, userdata, message):
     # resize the image to fit the label
     width, height = image.size
     aspect_ratio = height / width
-    new_width = 200
+    new_width = 600
     new_height = int(new_width * aspect_ratio)
     image = image.resize((new_width, new_height))
 
@@ -65,7 +69,6 @@ def update_IMAGEBOX(client, userdata, message):
     photo = ImageTk.PhotoImage(image)
     GUSVisionImage_label.configure(image=photo)
     GUSVisionImage_label.image = photo
-
 
 # set the callback function for the "GUSPrompt" topic
 client.message_callback_add("GUSPrompt", update_LIST_box)
@@ -79,4 +82,4 @@ client.subscribe("GUSVision")
 client.loop_start()
 
 # start the GUI main loop
-root.mainloop()
+GUSCon.mainloop()

@@ -10,17 +10,20 @@ from voice import soundfx, speak
 from experimental import assassination_protocol
 import spankbank
 import multiprocessing
-import queue
+import openai
+openai.api_key = "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"
 
-
+AIMessages = []
+AIMessages.append({"role": "system", "content": "A wise old mentor"})
 #from GUSmain import GUS
-queue = multiprocessing.Queue()
+
 
 HOST = ""  # Standard loopback interface address (localhost)
 PORT = 23232  # Port to listen on (non-privileged ports are > 1023)
 
+
 def spankbank_process(queue):
-    sb = spankbank.SpankBank()
+    #sb = spankbank.SpankBank()
     while True:
         try:
             command = queue.get(block=False)
@@ -35,8 +38,7 @@ def spankbank_process(queue):
                     sb.stop()
                 break
 
-p = multiprocessing.Process(target=spankbank_process, args=(queue,))
-p.start()
+
 
 def brain(GUS):
 
@@ -76,15 +78,19 @@ def brain(GUS):
 	# terminate the program
     elif "bye" in GUS.query:
         speak("Buh Bye")
-        soundfx('ramblin')
+        speak("SFX OFF")
+        #soundfx('ramblin')
         exit()
     elif "SpankBank" in GUS.query:
-        
+        SBProcess = multiprocessing.Process(target=spankbank.SpankBank())
 
-        queue.put("start")
-        
+        SBProcess.start()
+        #SBProcess.join()
+        #queue.put("start")       
     elif "SBStop" in GUS.query:
-        queue.put('stop')
+        speak("Once it's out there...")
+        #SBProcess.terminate()
+        #queue.put('stop')
 
  
     # Start of the fun stuff
@@ -148,6 +154,19 @@ def brain(GUS):
         speak("SFX disabled")
         #    soundfx('quiet')
 #  End of the fun stuff
+    elif 'AI' in GUS.query:
+        resAI = GUS.query.split(' ')
+
+        if len(resAI) > 1:
+
+            responseTempAI=GUS.query
+            AIMessages.append({"role": "user", "content": responseTempAI})
+            AICompletion = openai.ChatCompletion.create(model= "gpt-3.5-turbo", messages=[{"role": "user", "content": responseTempAI}])
+            AIReply = AICompletion["choices"][0]["message"]["content"]
+            speak(AIReply)
+
+        else:
+            speak('Must provide direction as 2nd argument ("move [arg]") not: ' + GUS.query)
 
 
     elif GUS.query == "":

@@ -77,7 +77,7 @@ if __name__ == '__main__':
         stupidTempquery = ears.on_message
         #print("polled!")
             #END Pull
-        
+
         #  Switched to not "" instead of None
         if GUS.query != "":
             print(GUS.query)
