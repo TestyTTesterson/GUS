@@ -2,9 +2,9 @@
 from playsound import playsound
 import os
 from time import sleep
-import pyttsx3
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
+#import pyttsx3
+#engine = pyttsx3.init()
+#voices = engine.getProperty('voices')
 import os
 from paho.mqtt import client as mqtt_client
 import spankbank
@@ -20,11 +20,11 @@ def speak(phrase):
     # setter method .[0]=male voice and
     # [1]=female voice in set Property.
     #engine.setProperty('voice', 'zhy')
-    engine.setProperty('voice', "english_wmids" + '-m7')
-    engine.setProperty('rate', 235)
+ #   engine.setProperty('voice', "english_wmids" + '-m7')
+  #  engine.setProperty('rate', 235)
      
-    engine.say(phrase) 
-    engine.runAndWait()
+   # engine.say(phrase) 
+    #engine.runAndWait()
     print(phrase)
     
     client.publish("GUSPrompt", phrase)
