@@ -93,7 +93,7 @@ def brain(GUS):
         #SBProcess.terminate()
         #queue.put('stop')
     elif "avoision" in GUS.query:
-        collisiondetection.checkpath()
+        collisiondetection.checkpath(GUS)
  
     # Start of the fun stuff
     elif "good boy" in GUS.query:
