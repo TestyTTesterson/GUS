@@ -9,7 +9,7 @@ import os
 from paho.mqtt import client as mqtt_client
 import spankbank
 
-broker = 'localhost'
+broker = '192.168.0.4'
 port = 1883
 topic = "GUSPrompt"
 client_id = ''

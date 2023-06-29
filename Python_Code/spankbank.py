@@ -1,7 +1,7 @@
 import cv2
 import time
 from paho.mqtt import client as mqtt_client
-broker = 'localhost'
+broker = '192.168.0.4'
 port = 1883
 topic = "GUSVision"
 client_id = ''

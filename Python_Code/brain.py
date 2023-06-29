@@ -104,7 +104,7 @@ def brain(GUS):
 		#PS4Ctrlr.listen()
     elif "who" in GUS.query or "your name" in GUS.query:
         speak("I'm GUS, your desktop assistant")
-        greeting()
+        print(greeting())
     elif "hamburger" in GUS.query or "cheeseburger" in GUS.query:
         speak("SFX disabled")
         #    soundfx("hamburger")
@@ -155,14 +155,18 @@ def brain(GUS):
         #    soundfx('quiet')
 #  End of the fun stuff
     elif 'AI' in GUS.query:
+        # split the query by " " delim 
         resAI = GUS.query.split(' ')
 
         if len(resAI) > 1:
+            #if there are at least 2 words
 
             responseTempAI=GUS.query
+            # add header info
             AIMessages.append({"role": "user", "content": responseTempAI})
             AICompletion = openai.ChatCompletion.create(model= "gpt-3.5-turbo", messages=[{"role": "user", "content": responseTempAI}])
             AIReply = AICompletion["choices"][0]["message"]["content"]
+            
             speak(AIReply)
 
         else:
