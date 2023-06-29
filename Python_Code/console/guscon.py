@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 from tkinter import *
-from tkinter import ttk
-
+from tkinter import ttk, Canvas
+import tkinter as tk
 from PIL import Image, ImageTk
 from io import BytesIO
 
@@ -9,7 +9,7 @@ from io import BytesIO
 client = mqtt.Client()
 
 # connect to the MQTT server
-client.connect("localhost")
+client.connect("192.168.0.4")
 
 # create the GUI
 GUSCon = Tk()
@@ -30,6 +30,14 @@ previous_entries = ["who"]
 GUSInput_box = ttk.Combobox(GUSCon, values=previous_entries)
 GUSInput_box.pack()
 GUSInput_box.focus_set()
+# Create a Canvas widget
+# Create a Canvas widget
+canvas = tk.Canvas(GUSCon, width=200, height=200)
+canvas.pack()
+
+# Draw a light as a circle
+light = canvas.create_oval(50, 50, 150, 150, fill="")
+
 
 def send_message():
     # get the message from the input box
@@ -47,6 +55,15 @@ def send_message():
 send_button = Button(GUSCon, text="Send", command=send_message)
 GUSCon.bind('<Return>', lambda event: send_button.invoke())
 send_button.pack()
+
+def update_AVOISIONLIGHT(client, userdata, message):
+    # get the message payload
+    payload = message.payload.decode()
+    # update the LISTBOX box with the received message
+    if "TRIGGERED" in payload:   
+        canvas.itemconfig(light, fill="green")
+    else:
+        canvas.itemconfig(light, fill="red")
 
 def update_LIST_box(client, userdata, message):
     # get the message payload
@@ -73,11 +90,12 @@ def update_IMAGEBOX(client, userdata, message):
 # set the callback function for the "GUSPrompt" topic
 client.message_callback_add("GUSPrompt", update_LIST_box)
 client.message_callback_add("GUSVision", update_IMAGEBOX)
+client.message_callback_add("GUSAvoision", update_AVOISIONLIGHT)
 
 # subscribe to the "GUSPrompt" topic
 client.subscribe("GUSPrompt")
 client.subscribe("GUSVision")
-
+client.subscribe("GUSAvoision")
 # start the MQTT loop in a separate thread
 client.loop_start()
 

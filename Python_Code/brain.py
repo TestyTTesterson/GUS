@@ -9,6 +9,7 @@ from greeting import greeting
 from voice import soundfx, speak
 from experimental import assassination_protocol
 import spankbank
+import collisiondetection
 import multiprocessing
 import openai
 openai.api_key = "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"
@@ -91,7 +92,8 @@ def brain(GUS):
         speak("Once it's out there...")
         #SBProcess.terminate()
         #queue.put('stop')
-
+    elif "avoision" in GUS.query:
+        collisiondetection.checkpath()
  
     # Start of the fun stuff
     elif "good boy" in GUS.query:
