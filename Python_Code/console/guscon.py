@@ -32,12 +32,26 @@ GUSInput_box.pack()
 GUSInput_box.focus_set()
 # Create a Canvas widget
 # Create a Canvas widget
-canvas = tk.Canvas(GUSCon, width=200, height=200)
-canvas.pack()
+canvas = tk.Canvas(GUSCon, width=200, height=200, borderwidth=0, highlightthickness=0)
+canvas.pack(anchor='nw')
 
+# Calculate the size of the oval
+oval_size = 50
+
+# Calculate the coordinates for aligning the oval to the top-left corner
+x1 = canvas.winfo_x()
+y1 = canvas.winfo_y()
+x2 = x1 + oval_size
+y2 = y1 + oval_size
 # Draw a light as a circle
-light = canvas.create_oval(50, 50, 150, 150, fill="")
+light = canvas.create_oval(x1, y1, x2, y2, fill="purple")
 
+# Calculate the coordinates for placing the label
+label_x = ((x1 + x2) / 2)+10
+label_y = ((y1 + y2) / 2)+40
+
+# Add the label to the canvas
+label = canvas.create_text(label_x, label_y, text="Avoision", font=("Arial", 12))
 
 def send_message():
     # get the message from the input box
