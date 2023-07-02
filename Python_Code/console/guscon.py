@@ -13,7 +13,8 @@ client.connect("192.168.0.4")
 
 # create the GUI
 GUSCon = Tk()
-
+# Set the title of the window
+GUSCon.title("GUS CONSOLE")
 # create the first listbox to display received messages
 GUSmessage_listbox = Listbox(GUSCon, width = 60, height = 10, )
 # Create a Scrollbar widget
@@ -26,7 +27,7 @@ GUSmessage_listbox.pack(side='bottom', fill='both', expand=True)
 GUSVisionImage_label = Label(GUSCon)
 GUSVisionImage_label.pack(side="top")
 # Create Combobox widget with custom values
-previous_entries = ["who"]
+previous_entries = ["who", "assassinate", "Avoision"]
 GUSInput_box = ttk.Combobox(GUSCon, values=previous_entries)
 GUSInput_box.pack()
 GUSInput_box.focus_set()
