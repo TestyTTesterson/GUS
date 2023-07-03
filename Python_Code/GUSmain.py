@@ -54,7 +54,7 @@ def on_message(client, userdata, message):
 
 ears.on_message=on_message
     # Connect to MQTT broker
-ears.connect("192.168.0.4", 1883)
+ears.connect("192.168.0.54", 1883)
     # Subscribe to MQTT topic
 ears.subscribe("GUSCommands")
 
