@@ -94,7 +94,10 @@ def brain(GUS):
         #queue.put('stop')
     elif "avoision" in GUS.query:
         collisiondetection.checkpath(GUS)
- 
+    elif "Hey GUS, it's me TestyTTesterson!" in GUS.query:
+        speak("Hey TTT, it's me GUS!", GUS)
+    elif "Commands mqtt Test from GUS lora" in GUS.query:
+        speak("MY lora mudule seems to be working...", GUS)
     # Start of the fun stuff
     elif "good boy" in GUS.query:
         speak("Eey ore!  You are such a good boy!", GUS)
