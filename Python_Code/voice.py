@@ -15,7 +15,7 @@ topic = "GUSPrompt"
 client_id = ''
 client= spankbank.connect_mqtt()
 
-def speak(phrase):
+def speak(phrase, GUS):
 
     # setter method .[0]=male voice and
     # [1]=female voice in set Property.
@@ -27,7 +27,7 @@ def speak(phrase):
     #engine.runAndWait()
     print(phrase)
     
-    client.publish("GUSPrompt", phrase)
+    ears.publish("GUSPrompt", phrase)
 
 def soundfx(fx):
 

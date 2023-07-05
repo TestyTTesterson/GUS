@@ -78,8 +78,8 @@ def brain(GUS):
 
 	# terminate the program
     elif "bye" in GUS.query:
-        speak("Buh Bye")
-        speak("SFX OFF")
+        speak("Buh Bye", GUS)
+        speak("SFX OFF", GUS)
         #soundfx('ramblin')
         exit()
     elif "SpankBank" in GUS.query:
@@ -89,7 +89,7 @@ def brain(GUS):
         #SBProcess.join()
         #queue.put("start")       
     elif "SBStop" in GUS.query:
-        speak("Once it's out there...")
+        speak("Once it's out there...", GUS)
         #SBProcess.terminate()
         #queue.put('stop')
     elif "avoision" in GUS.query:
@@ -97,63 +97,63 @@ def brain(GUS):
  
     # Start of the fun stuff
     elif "good boy" in GUS.query:
-        speak("Eey ore!  You are such a good boy!")
+        speak("Eey ore!  You are such a good boy!", GUS)
     elif "hi" in GUS.query:
         greeting()
 		#  Identify yourself
     elif "controller" in GUS.query:
-        speak('controllers are hard')
+        speak('controllers are hard', GUS)
 		#PS4Ctrlr.listen()
     elif "who" in GUS.query or "your name" in GUS.query:
-        speak("I'm GUS, your desktop assistant")
+        speak("I'm GUS, your desktop assistant", GUS)
         print(greeting())
     elif "hamburger" in GUS.query or "cheeseburger" in GUS.query:
-        speak("SFX disabled")
+        speak("SFX disabled", GUS)
         #    soundfx("hamburger")
     elif "you" in GUS.query:
-        speak("SFX disabled")
+        speak("SFX disabled", GUS)
         #   soundfx('fuck you')
     elif "audacity" in GUS.query:
-        speak("SFX disabled")
+        speak("SFX disabled", GUS)
         #    soundfx("audacity")
     elif "what is best in life" in GUS.query:
-        speak("Crush your enemies, see them driven before you, and hear the lamentation of their women.")
+        speak("Crush your enemies, see them driven before you, and hear the lamentation of their women.", GUS)
         sleep(3.5)
     elif 'assassinate' in GUS.query or 'murder' in GUS.query or "kill" in GUS.query:
     #    soundfx("kill")
-        speak("Activating assassination protocol.")
+        speak("Activating assassination protocol.", GUS)
         assassination_protocol("kill")
         sleep(3)
     elif "mayhem" in GUS.query:
      #   soundfx("kill")
-        speak("Activating strategic action protocol")
+        speak("Activating strategic action protocol", GUS)
         sleep(2)
-        speak("Target acquisition in progress")
+        speak("Target acquisition in progress", GUS)
         sleep(2)
-        speak("Water infrastructure, electricical infrastructure, road systems.")
+        speak("Water infrastructure, electricical infrastructure, road systems.", GUS)
         sleep(4)
         speak("No viable targets")
     elif "future" in GUS.query:
     #    soundfx("aenema")
-        speak("Accessing future crime database")
+        speak("Accessing future crime database", GUS)
     #    soundfx('keyboard')
         sleep(2)
     #    soundfx("dial-up")
         sleep(29.5)
-        speak("Future crime detected")
+        speak("Future crime detected", GUS)
         sleep(2.5)
-        speak("Target acquisition in progress")
+        speak("Target acquisition in progress", GUS)
         sleep(2)
-        speak("Target acquired")
+        speak("Target acquired", GUS)
         sleep(1)
-        speak("Activating assassination protocol")
+        speak("Activating assassination protocol", GUS)
         sleep(1)
         assassination_protocol("kill")
     elif "lost" in GUS.query:
-        speak("SFX disabled")
+        speak("SFX disabled", GUS)
         #   soundfx("lost")    
     elif 'quiet' in GUS.query:
-        speak("SFX disabled")
+        speak("SFX disabled", GUS)
         #    soundfx('quiet')
 #  End of the fun stuff
     elif 'AI' in GUS.query:
@@ -169,15 +169,15 @@ def brain(GUS):
             AICompletion = openai.ChatCompletion.create(model= "gpt-3.5-turbo", messages=[{"role": "user", "content": responseTempAI}])
             AIReply = AICompletion["choices"][0]["message"]["content"]
             
-            speak(AIReply)
+            speak(AIReply, GUS)
 
         else:
-            speak('Must provide direction as 2nd argument ("move [arg]") not: ' + GUS.query)
+            speak('Must provide direction as 2nd argument ("move [arg]") not: ' + GUS.query, GUS)
 
 
     elif GUS.query == "":
         # shouldn't get here
-        speak("Waiting patiently for a command.")
+        speak("Waiting patiently for a command.", GUS)
         sleep(2)
     	
 	#  Catch all	
