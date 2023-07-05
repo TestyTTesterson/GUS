@@ -27,7 +27,7 @@ def speak(phrase, GUS):
     #engine.runAndWait()
     print(phrase)
     
-    ears.publish("GUSPrompt", phrase)
+    GUS.ears.publish("GUSPrompt", phrase)
 
 def soundfx(fx):
 

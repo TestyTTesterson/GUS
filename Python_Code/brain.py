@@ -183,7 +183,7 @@ def brain(GUS):
 	#  Catch all	
     else:
         
-        speak("No hablo whatever that was.")
+        speak("No hablo whatever that was.", GUS)
         #  If it's gibberish, make it blank
         GUS.query = ""
 
