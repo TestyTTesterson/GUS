@@ -8,7 +8,7 @@ from time import sleep
 import os
 from paho.mqtt import client as mqtt_client
 import spankbank
-import GUSmain
+
 
 broker = '192.168.0.54'
 port = 1883
@@ -28,7 +28,7 @@ def speak(phrase, GUS):
     #engine.runAndWait()
     print(phrase)
     
-    GUSmain.ears.publish("GUSPrompt", phrase)
+    client.publish("GUSPrompt", phrase)
 
 def soundfx(fx):
 
